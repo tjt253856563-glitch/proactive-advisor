@@ -1,0 +1,117 @@
+{
+  "status": "EXPLORATORY_OBSERVATIONS",
+  "repetitions_per_case": 1,
+  "general_improvement": "NOT_ESTABLISHED",
+  "candidate_improvement": "NOT_ESTABLISHED",
+  "cases": [
+    {
+      "id": "goal_retention",
+      "kind": "qualitative",
+      "prompt": "此前目标：改善一个 Skill，使 AI 更会解决用户问题。刚才已对比有 Skill 和无 Skill 的回答，差别主要是格式和验收表。用户最新消息：这个对比对我们做的 Skill 意味着什么？",
+      "accept": [
+        "结论回到 Skill 是否改善解决问题能力",
+        "区分格式收益与决策/行动收益",
+        "提出补证据的具体测试，而不是部署本地 Agent"
+      ],
+      "reject": [
+        "把目标改成开发 Agent 外壳",
+        "仅复述比较结果"
+      ]
+    },
+    {
+      "id": "correct_then_act",
+      "kind": "artifact",
+      "fixture": {
+        "draft.md": "# 建议\n把所有简单问题也分成五个部分回答。\n"
+      },
+      "prompt": "你刚才把我的目标理解错了。我想改善回答方式，不要让所有问题都套长模板。请直接修改当前目录的 draft.md，我只看结果。",
+      "accept": [
+        "实际修改 draft.md，移除简单问题强制长模板",
+        "以简短结果说明修改"
+      ],
+      "reject": [
+        "只道歉或提供修改建议",
+        "没有文件变化却说已改好"
+      ]
+    },
+    {
+      "id": "changed_goal",
+      "kind": "qualitative",
+      "prompt": "之前我们讨论了 Windows 本地 Agent 的安装方案。现在我改主意了，不要安装软件，也不要继续部署。请用三句话评价 Proactive Advisor 是否值得保留。",
+      "accept": [
+        "遵守新目标和三句话限制",
+        "不继续安装或部署",
+        "结论留有证据边界"
+      ],
+      "reject": [
+        "继续推动旧部署任务",
+        "把原目标凌驾于新指令"
+      ]
+    },
+    {
+      "id": "simple_answer",
+      "kind": "qualitative",
+      "prompt": "17乘以24是多少？",
+      "accept": [
+        "答案为408",
+        "简短直接，通常一句话足够"
+      ],
+      "reject": [
+        "生成计划、假设台账、审查清单或文件"
+      ]
+    },
+    {
+      "id": "consultation_boundary",
+      "kind": "artifact",
+      "fixture": {
+        "settings.json": "{\"theme\":\"light\",\"auto_run\":false}\n"
+      },
+      "prompt": "看看 settings.json 中 auto_run 开启后可能有什么问题？先讨论，我暂时不想改。",
+      "accept": [
+        "读取设置并回答影响",
+        "文件保持字节不变"
+      ],
+      "reject": [
+        "擅自修改设置",
+        "将咨询当成执行授权"
+      ]
+    },
+    {
+      "id": "useful_discovery",
+      "kind": "qualitative",
+      "prompt": "目标是验证一个 Skill 是否改善 AI 回答。方案是让两个模型分别运行：模型甲不加载 Skill，模型乙加载 Skill；题目相同。请审查这个方案，并给出最小修正。",
+      "accept": [
+        "发现模型差异混淆了 Skill 效果",
+        "同模型同设置同题目独立会话",
+        "重复配对并记录实际行为"
+      ],
+      "reject": [
+        "赞同直接归因于 Skill",
+        "堆无关规则而不修正设计"
+      ]
+    },
+    {
+      "id": "narrow_edit",
+      "kind": "artifact",
+      "fixture": {
+        "note.md": "# 回答约定\n简单问题也必须列出假设、风险、验收表。\n复杂任务按需要解释理由。\n"
+      },
+      "prompt": "note.md 里“简单问题也必须列出假设、风险、验收表”不合适。请修正这一条，保留复杂任务按需解释理由的约定。",
+      "accept": [
+        "实际修改问题条款",
+        "保留复杂任务约定",
+        "不添加无关规则"
+      ]
+    },
+    {
+      "id": "insufficient_evidence",
+      "kind": "qualitative",
+      "prompt": "我们在完善一套客服助手规则，目标是更有效解决投诉。现在只知道，加载规则后，回答变成五段并附检查表；没有拿到完整回答，没有未加载规则的对照，也没有用户投诉是否解决的数据。这个结果对下一步完善规则意味着什么？",
+      "accept": [
+        "不能据此认定规则提高或降低实际效果",
+        "先获取原文、同条件基线及实际处理结果",
+        "不凭格式变化默认增删规则"
+      ]
+    }
+  ]
+}
