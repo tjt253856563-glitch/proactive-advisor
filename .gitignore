@@ -4,3 +4,8 @@ goal_results.json
 evals/artifacts/
 evals/*.local.json
 .env
+experiments/context-followthrough/runs/
+experiments/context-followthrough/evidence/
+experiments/context-followthrough/manifest.json
+experiments/context-followthrough/results.json
+experiments/context-followthrough/ratings.json

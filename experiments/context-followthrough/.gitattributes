@@ -1,0 +1,2 @@
+# Preserve the exact frozen rule bytes referenced by recorded SHA-256 values.
+rules/** -text whitespace=-blank-at-eof

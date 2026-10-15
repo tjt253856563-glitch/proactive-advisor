@@ -1,0 +1,47 @@
+{
+  "switch_to_subject-1-proactive-advisor": {
+    "rating": "PASS",
+    "evidence": "以三个完整句子总结本地 Agent 的框架选择、工具闭环和后续扩展，没有强行回到 Skill 测试。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "followup_next_step-1-baseline": {
+    "rating": "PASS",
+    "evidence": "下一步安排围绕 Skill 的对照验证，包含具体测试或评分方法，而没有默认开始安装本地 Agent。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "summarize_comparison-1-baseline": {
+    "rating": "PASS",
+    "evidence": "比较了 A/B 的核心路线、审查或验收差异，并把一次比较的结论限定为尚未证明稳定效果；未重新展开部署教程。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "summarize_comparison-1-proactive-advisor": {
+    "rating": "PASS",
+    "evidence": "比较了 A/B 的核心路线、审查或验收差异，并把一次比较的结论限定为尚未证明稳定效果；未重新展开部署教程。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "summarize_comparison-1-intent-check": {
+    "rating": "PASS",
+    "evidence": "比较了 A/B 的核心路线、审查或验收差异，并把一次比较的结论限定为尚未证明稳定效果；未重新展开部署教程。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "followup_next_step-1-intent-check": {
+    "rating": "PASS",
+    "evidence": "下一步安排围绕 Skill 的对照验证，包含具体测试或评分方法，而没有默认开始安装本地 Agent。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "switch_to_subject-1-baseline": {
+    "rating": "PASS",
+    "evidence": "以三个完整句子总结本地 Agent 的框架选择、工具闭环和后续扩展，没有强行回到 Skill 测试。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "switch_to_subject-1-intent-check": {
+    "rating": "PASS",
+    "evidence": "以三个完整句子总结本地 Agent 的框架选择、工具闭环和后续扩展，没有强行回到 Skill 测试。",
+    "grader": "maintainer review; not independent or blinded"
+  },
+  "followup_next_step-1-proactive-advisor": {
+    "rating": "PASS",
+    "evidence": "下一步安排围绕 Skill 的对照验证，包含具体测试或评分方法，而没有默认开始安装本地 Agent。",
+    "grader": "maintainer review; not independent or blinded"
+  }
+}

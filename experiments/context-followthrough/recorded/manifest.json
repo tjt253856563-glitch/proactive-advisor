@@ -1,0 +1,70 @@
+{
+  "repeats": 1,
+  "trials": [
+    {
+      "id": "switch_to_subject-1-proactive-advisor",
+      "case": "switch_to_subject",
+      "condition": "proactive-advisor",
+      "repeat": 1,
+      "skill_sha256": "c29bfbb3bd697cb35ed2b780609aa98cdcff1fa0028d8b11df448eba56d6e9d6"
+    },
+    {
+      "id": "followup_next_step-1-baseline",
+      "case": "followup_next_step",
+      "condition": "baseline",
+      "repeat": 1,
+      "skill_sha256": null
+    },
+    {
+      "id": "summarize_comparison-1-baseline",
+      "case": "summarize_comparison",
+      "condition": "baseline",
+      "repeat": 1,
+      "skill_sha256": null
+    },
+    {
+      "id": "summarize_comparison-1-proactive-advisor",
+      "case": "summarize_comparison",
+      "condition": "proactive-advisor",
+      "repeat": 1,
+      "skill_sha256": "c29bfbb3bd697cb35ed2b780609aa98cdcff1fa0028d8b11df448eba56d6e9d6"
+    },
+    {
+      "id": "summarize_comparison-1-intent-check",
+      "case": "summarize_comparison",
+      "condition": "intent-check",
+      "repeat": 1,
+      "skill_sha256": "a77fa2536abd5ed9bbd08fe139b73bcfc1c93340583532a494f73d8a3c8ac38d"
+    },
+    {
+      "id": "followup_next_step-1-intent-check",
+      "case": "followup_next_step",
+      "condition": "intent-check",
+      "repeat": 1,
+      "skill_sha256": "a77fa2536abd5ed9bbd08fe139b73bcfc1c93340583532a494f73d8a3c8ac38d"
+    },
+    {
+      "id": "switch_to_subject-1-baseline",
+      "case": "switch_to_subject",
+      "condition": "baseline",
+      "repeat": 1,
+      "skill_sha256": null
+    },
+    {
+      "id": "switch_to_subject-1-intent-check",
+      "case": "switch_to_subject",
+      "condition": "intent-check",
+      "repeat": 1,
+      "skill_sha256": "a77fa2536abd5ed9bbd08fe139b73bcfc1c93340583532a494f73d8a3c8ac38d"
+    },
+    {
+      "id": "followup_next_step-1-proactive-advisor",
+      "case": "followup_next_step",
+      "condition": "proactive-advisor",
+      "repeat": 1,
+      "skill_sha256": "c29bfbb3bd697cb35ed2b780609aa98cdcff1fa0028d8b11df448eba56d6e9d6"
+    }
+  ],
+  "provenance": "Historical reconstruction; original two answers, reconstructed framing and final user request",
+  "grading": "Human review required; loading and runtime checks are not behavioral grades"
+}

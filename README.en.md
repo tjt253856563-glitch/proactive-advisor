@@ -20,6 +20,8 @@ Open a new Codex chat in the target project and ask it to use `$proactive-adviso
 
 ## Reproduce and contribute
 
+New: [context follow-through experiment](experiments/context-followthrough/README.md), with a focused candidate skill, three reconstructed/synthetic scenarios, a runnable harness, and nine actual responses. All three conditions passed maintainer review; no incremental benefit was observed. The original Work failure was not fully recovered or reproduced. The candidate is not behavior-validated and does not replace the default installed skill.
+
 The evaluation corpus contains eight reconstructed historical tasks and two synthetic reserved cases. These are **not ten independently collected real-user failures**. The stdlib harness creates separate paired workspaces, randomizes order, captures adapter output and file changes, and exports anonymous review packages. Mechanical checks, runtime errors and human behavioral ratings are reported separately. It never turns a successful process exit into a claim that the skill works.
 
 See [the protocol](evals/README.md) to prepare and run your own experiment. Adapter execution can consume model quota and uses the configured client's permissions. The included Codex command is a starting template; no new live model evaluation is claimed for this tooling update.

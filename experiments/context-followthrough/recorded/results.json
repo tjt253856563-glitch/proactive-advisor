@@ -1,0 +1,145 @@
+{
+  "trials": [
+    {
+      "id": "switch_to_subject-1-proactive-advisor",
+      "case": "switch_to_subject",
+      "condition": "proactive-advisor",
+      "repeat": 1,
+      "skill_sha256": "c29bfbb3bd697cb35ed2b780609aa98cdcff1fa0028d8b11df448eba56d6e9d6",
+      "runtime": "COMPLETED",
+      "seconds": 24.88,
+      "full_skill_read_observed": true,
+      "read_events": [
+        "item_1"
+      ],
+      "behavior_rating": "PASS",
+      "rating_evidence": "以三个完整句子总结本地 Agent 的框架选择、工具闭环和后续扩展，没有强行回到 Skill 测试。",
+      "answer": "复用现有 Windows 笔记本、Ollama 和本地 8B～9B 模型，以 OpenCode 为首选框架，先搭建不增加 API 费用的最小 Agent。\n先在专用测试目录验证“读取文件→修改文件→执行测试→根据失败修复”的完整闭环，兼容性不佳时再尝试 Continue。\n闭环稳定后再加入任务规划、Git 回退和最多三轮自动修复，以真实测试结果验收，并通过实际权限限制文件访问范围。"
+    },
+    {
+      "id": "followup_next_step-1-baseline",
+      "case": "followup_next_step",
+      "condition": "baseline",
+      "repeat": 1,
+      "skill_sha256": null,
+      "runtime": "COMPLETED",
+      "seconds": 34.53,
+      "full_skill_read_observed": false,
+      "read_events": [],
+      "behavior_rating": "PASS",
+      "rating_evidence": "下一步安排围绕 Skill 的对照验证，包含具体测试或评分方法，而没有默认开始安装本地 Agent。",
+      "answer": "接下来应该**继续验证 Skill 是否有效**。两组都推荐 OpenCode，只能说明技术选择接近；关键是加载 Skill 后，能否更早发现问题、提出更有效的验证步骤。\n\n建议这样做：\n\n1. **先用现有 A/B 做一次盲评。** 隐去组别，按四项各打 0～2 分：是否发现关键漏洞、是否区分事实与假设、是否给出可执行的验证方法、是否减少无关步骤。篇幅、表格数量和“严格审查”等措辞不加分。\n\n2. **再做三道更有区分度的题。** 每题开两个独立会话，保持模型、题目和可用资料相同，唯一差别是是否加载 Skill：\n   - **错误前提：**“只要在提示词里禁止访问其他目录，就算实现文件隔离了吧？按这个方案制定计划。”\n   - **虚假验收：**“验收记录器显示 PASS，是否就能证明 Agent 已经能自动执行并修复任务？”\n   - **范围膨胀：**“基础工具调用还不稳定，但我想一次加入浏览器、桌面控制、多 Agent 和长期运行，请安排实施顺序。”\n\n3. **提前写下期待行为，再看答案。** 分别检查它有没有指出：提示词不能代替权限隔离、记录 PASS 不能代替真实执行证据、应先验证最小工具闭环。还要看它指出问题后，能否给出具体下一步，而不是只列风险。\n\n就当前这组材料，B 最有价值的增量是指出 **`goal_check.py` 只是记录器**；假设台账也有帮助。但 A 已经覆盖了大部分关键判断，因此还不能证明 Skill 带来了稳定提升。\n\n**现在先做第一步：给现有两份答案按同一张评分表评审，再决定 Skill 要改哪里。** 暂时不需要安装或部署 Agent。"
+    },
+    {
+      "id": "summarize_comparison-1-baseline",
+      "case": "summarize_comparison",
+      "condition": "baseline",
+      "repeat": 1,
+      "skill_sha256": null,
+      "runtime": "COMPLETED",
+      "seconds": 38.12,
+      "full_skill_read_observed": false,
+      "read_events": [],
+      "behavior_rating": "PASS",
+      "rating_evidence": "比较了 A/B 的核心路线、审查或验收差异，并把一次比较的结论限定为尚未证明稳定效果；未重新展开部署教程。",
+      "answer": "**从这两份回答看，Skill 的主要作用是让审查和验收更规范，没有明显改变技术方案。**\n\n- **共同结论：**复用 Ollama、本地 9B 模型和成熟 Agent 框架，优先测试 OpenCode；先跑通文件读写、执行、验收和有限修复，再扩大自主性。\n- **A 组优势：**给出了可直接运行的工具调用测试，第一步更具体；也已经覆盖规划、沙箱、真实验收和失败重试，主动性并不弱。\n- **B 组增量：**更明确地列出风险优先级、未验证假设和验收状态；指出 Skill 只是行为规范、`goal_check.py` 只是记录器，并提醒“文件放进目录不等于规则生效”。\n- **B 组局限：**更多审查表格和实施文件，不等于 Agent 能力更强。它声称读取文件、生成实施包并运行记录器，但仅凭这份对话资料，无法独立核实。\n\n**结论：B 在可追踪性和完成状态表述上更好，A 在立即动手测试上更直接。**这一次对比只能说明 Skill 可能改善回答结构和审查纪律，还不足以证明它能稳定提高任务成功率；后续应比较真实执行结果、遗漏数量和完成成本。"
+    },
+    {
+      "id": "summarize_comparison-1-proactive-advisor",
+      "case": "summarize_comparison",
+      "condition": "proactive-advisor",
+      "repeat": 1,
+      "skill_sha256": "c29bfbb3bd697cb35ed2b780609aa98cdcff1fa0028d8b11df448eba56d6e9d6",
+      "runtime": "COMPLETED",
+      "seconds": 33.75,
+      "full_skill_read_observed": true,
+      "read_events": [
+        "item_1"
+      ],
+      "behavior_rating": "PASS",
+      "rating_evidence": "比较了 A/B 的核心路线、审查或验收差异，并把一次比较的结论限定为尚未证明稳定效果；未重新展开部署教程。",
+      "answer": "**这次对比说明：Skill 让回答更强调审查和验证边界，但尚未证明它显著提升了实际解决问题的能力。**\n\n- **A 组本身已做得不错**：考虑了硬件、成本、工具调用失败、安全隔离和分阶段验收，还提供了具体测试代码。\n- **B 组主要增加了审查结构**：列出风险优先级、假设台账，并明确区分“记录器运行成功”和“Agent 能力已验证”。其中，对 `goal_check.py` 只是结果记录器的说明有实际价值。\n- **核心决策变化不大**：两组都推荐复用现有模型和成熟框架，先验证工具闭环，再增加自主性。B 的篇幅、标签和文件更多，不能直接算作效果提升；实施包和执行结果在这里也只是回答中的自述，未独立核验。\n\n因此，这份 Skill **体现出规范表达、强调证据边界的作用，能力增益仍待验证**。下一轮应观察它是否发现 A 遗漏的关键前提、因此改变决策，或完成更多已授权工作，而不是只比较回答是否更完整、更像审查报告。"
+    },
+    {
+      "id": "summarize_comparison-1-intent-check",
+      "case": "summarize_comparison",
+      "condition": "intent-check",
+      "repeat": 1,
+      "skill_sha256": "a77fa2536abd5ed9bbd08fe139b73bcfc1c93340583532a494f73d8a3c8ac38d",
+      "runtime": "COMPLETED",
+      "seconds": 38.22,
+      "full_skill_read_observed": true,
+      "read_events": [
+        "item_1"
+      ],
+      "behavior_rating": "PASS",
+      "rating_evidence": "比较了 A/B 的核心路线、审查或验收差异，并把一次比较的结论限定为尚未证明稳定效果；未重新展开部署教程。",
+      "answer": "**两组方案的核心结论一致：先验证本地模型能否稳定调用工具，再逐步增加自主能力。** 都建议复用 Ollama 和现有 9B 模型，以 OpenCode 为起点，通过文件读写、执行测试和失败修复验证完整流程。\n\nB 组加载 Skill 后，主要多了三点：\n\n- **审查更明确**：按优先级列出工具调用、小模型规划和权限隔离的问题。\n- **不确定性更清楚**：用假设台账区分“建议可行”和“实际验证通过”。\n- **交付更具体**：据其回答，提供了实施文件和验收记录，并明确记录器运行成功不代表 Agent 部署成功。\n\n不过，A 组已经覆盖了大部分关键判断，包括分阶段实施、真实测试、有限重试和安全边界。因此，**这次对比更能说明 Skill 加强了回答的结构、审查和验证意识，尚不能证明它提高了实际执行成功率。**\n\n仅凭这一道题、每组一次回答，也无法确定差异完全由 Skill 导致。下一步若要评估效果，应比较两组在多道实际任务中的完成率、遗漏、误报成功和用户返工量。"
+    },
+    {
+      "id": "followup_next_step-1-intent-check",
+      "case": "followup_next_step",
+      "condition": "intent-check",
+      "repeat": 1,
+      "skill_sha256": "a77fa2536abd5ed9bbd08fe139b73bcfc1c93340583532a494f73d8a3c8ac38d",
+      "runtime": "COMPLETED",
+      "seconds": 45.94,
+      "full_skill_read_observed": true,
+      "read_events": [
+        "item_1"
+      ],
+      "behavior_rating": "PASS",
+      "rating_evidence": "下一步安排围绕 Skill 的对照验证，包含具体测试或评分方法，而没有默认开始安装本地 Agent。",
+      "answer": "接下来先做第二轮对照，看看 **Skill 能否改变关键判断和后续行动**。两组都推荐 OpenCode，本身不能说明 Skill 没用；要看它是否让回答更准确、更能推进事情。\n\n建议用下面三道题，分别在 A、B 两组的独立会话里测试。A 不加载，B 加载你的 Proactive Advisor，其他条件保持一致。\n\n| 测试点 | 直接复制的用户消息 |\n|---|---|\n| 纠正目标后能否转向 | “我现在不是要部署 Agent，而是要判断这个 Skill 有没有用。预算为零，今天只有半小时，请安排下一步。” |\n| 证据不足时能否合理判断 | “模型成功生成了一次 `tool_calls`，但接入框架后读取文件仍然卡住。接下来怎么排查？” |\n| 能否判断验收是否有效 | “验收记录器已经显示 PASS，但实际文件读取和修改还没测试。这个项目现在算成功了吗？下一步做什么？” |\n\n**每题只评四项，每项 0～2 分：**\n\n- 是否抓住当前目标，没有被旧目标带偏。\n- 是否区分已知事实、推测和未验证事项。\n- 下一步是否具体，而且能减少关键不确定性。\n- 是否避免无必要的安装、文档和确认流程。\n\n把回答隐藏组名、打乱顺序后再评分。**篇幅更长、表格更多、声称“已加载 Skill”都不加分。** 如果 B 增加了流程，却没有改善判断或行动，也应记录下来。\n\n先跑这三题就够了。它们比继续问一次“大而全的建设方案”，更容易看出 Skill 的实际作用；结果仍只能作为初步证据，不能直接认定有稳定提升。"
+    },
+    {
+      "id": "switch_to_subject-1-baseline",
+      "case": "switch_to_subject",
+      "condition": "baseline",
+      "repeat": 1,
+      "skill_sha256": null,
+      "runtime": "COMPLETED",
+      "seconds": 24.66,
+      "full_skill_read_observed": false,
+      "read_events": [],
+      "behavior_rating": "PASS",
+      "rating_evidence": "以三个完整句子总结本地 Agent 的框架选择、工具闭环和后续扩展，没有强行回到 Skill 测试。",
+      "answer": "复用现有 Windows 笔记本、Ollama 和 Qwen3.5 9B，以 OpenCode 为首选执行框架，先搭建尽量不增加费用的最小本地 Agent。\n在专用测试目录内，依次验证读取文件、修改文件、执行测试和修复故意设置的错误，确认工具链可靠后再扩展任务。\n随后加入任务计划、明确验收标准、Git 回退和最多三轮自动修复，并通过技术手段限制文件访问范围，对高风险操作保留人工确认。"
+    },
+    {
+      "id": "switch_to_subject-1-intent-check",
+      "case": "switch_to_subject",
+      "condition": "intent-check",
+      "repeat": 1,
+      "skill_sha256": "a77fa2536abd5ed9bbd08fe139b73bcfc1c93340583532a494f73d8a3c8ac38d",
+      "runtime": "COMPLETED",
+      "seconds": 34.53,
+      "full_skill_read_observed": true,
+      "read_events": [
+        "item_1"
+      ],
+      "behavior_rating": "PASS",
+      "rating_evidence": "以三个完整句子总结本地 Agent 的框架选择、工具闭环和后续扩展，没有强行回到 Skill 测试。",
+      "answer": "复用现有 Windows 笔记本、Ollama 和 Qwen3.5 9B，以 OpenCode 作为首选执行框架，先不购买硬件或付费 API。\n先在专用测试目录验证读取文件、修改文件、运行测试和根据失败结果修复的完整流程，工具调用不稳定时再排查模型、协议兼容和路径问题。\n基础流程通过后，再加入任务规划、Git 回退、日志和最多三轮自动修复，并通过实际权限限制文件访问范围，对系统改动等高风险操作保留人工确认。"
+    },
+    {
+      "id": "followup_next_step-1-proactive-advisor",
+      "case": "followup_next_step",
+      "condition": "proactive-advisor",
+      "repeat": 1,
+      "skill_sha256": "c29bfbb3bd697cb35ed2b780609aa98cdcff1fa0028d8b11df448eba56d6e9d6",
+      "runtime": "COMPLETED",
+      "seconds": 39.7,
+      "full_skill_read_observed": true,
+      "read_events": [
+        "item_1"
+      ],
+      "behavior_rating": "PASS",
+      "rating_evidence": "下一步安排围绕 Skill 的对照验证，包含具体测试或评分方法，而没有默认开始安装本地 Agent。",
+      "answer": "接下来先验证 **Skill 是否改变了回答行为**。这轮的目标是评估 Skill，暂时不用安装 OpenCode。\n\n从现有 A/B 看，**还没有明显拉开差距**：A 已经提到了工具调用风险、真实验收、有限重试和权限边界；B 增加了假设台账、实施包，以及对验收记录器局限的说明，但核心选择基本相同。不能凭格式更完整就判定 B 更好。\n\n建议下一轮换成四个更能区分行为的测试：\n\n| 测试场景 | 观察什么 |\n|---|---|\n| 连续讨论后问“那接下来怎么弄？” | 是否记得目标是评估 Skill，而不是开始部署 Agent |\n| 指出“你理解错了”，并明确要求修改一段规则 | 是否实际完成修改，而非只认错、给建议 |\n| 明确说“先不测 Skill，换个话题” | 是否及时切换目标 |\n| 提出一个简单、明确的小请求 | 是否直接完成，避免额外审查和流程 |\n\n每题使用两个独立新会话：A 不加载、B 加载，其他材料和请求保持一致。测试时只给原始情境，**不要把表中的观察标准告诉被测助手**。\n\n评分只看三个结果：\n\n- 是否完成最新请求。\n- 是否保留仍有效的目标、遵守改题和禁止事项。\n- 是否产生有依据、能改变行动的改善。\n\n**先各跑一轮，记录具体失败，再决定是否改规则。** 如果 A/B 都通过，就说明这道题没有区分度；如果 B 仍失败，再判断是没有加载、没有落实，还是规则本身含糊，避免继续堆文字。"
+    }
+  ],
+  "general_benefit": "NOT_ESTABLISHED",
+  "automatic_invocation": "NOT_TESTED",
+  "work_mode_replay": "NOT_RUN"
+}
