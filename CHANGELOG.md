@@ -1,5 +1,10 @@
 # Changelog
 
+## CI activation — 2026-10-15
+
+- 补充 GitHub workflow 授权后提交自动检查配置，覆盖 Windows/Linux 与 Python 3.10/3.12。
+- 对推送与 PR 运行项目工具测试和 Python 编译检查；每次运行的实际结果见 Actions，不据此宣称 Skill 行为增益。
+
 ## Project tooling update — 2026-10-15
 
 - 新增中英文入门文档、安装/卸载说明、项目级复制安装器和修改保护。

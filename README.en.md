@@ -30,7 +30,7 @@ python -m unittest discover -s tests -v
 
 These tests verify the installer and harness, **not model quality**. The `goal_check.py` helper separately records user-supplied results and does not execute checks or authenticate evidence.
 
-Fifteen local infrastructure tests pass. GitHub CI is not enabled: the current OAuth credential lacks the workflow scope. See the [configuration draft and activation steps](docs/ci.md); no remote CI pass is claimed.
+Fifteen local infrastructure tests pass. The GitHub CI workflow covers Windows/Linux and Python 3.10/3.12. Check [Actions](https://github.com/tjt253856563-glitch/proactive-advisor/actions/workflows/checks.yml) for the result of a specific commit; see [CI scope](docs/ci.md) for what these checks establish.
 
 Useful feedback includes the redacted task, client/model/settings, both baseline and skill outputs, actual file differences and unwanted side effects. [Contribution guide](CONTRIBUTING.md). We do not claim external adoption from stars, downloads or infrastructure checks.
 

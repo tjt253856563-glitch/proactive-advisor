@@ -61,7 +61,7 @@ python -m unittest discover -s tests -v
 
 自动检查覆盖安装与卸载保护、评测隔离、真实文件变化、失败/超时分类和评分证据要求。**这些是项目工具测试，不是新增模型效果结果。** 本轮没有宣称完成新的在线模型对照或外部用户试用。运行方法、客户端配置污染和匿名评分的限制见 [评测操作说明](evals/README.md)。
 
-本机十五项工具测试已通过。GitHub CI 因当前 OAuth 凭据缺少 workflow 权限尚未启用，配置与启用步骤见 [CI 草案](docs/ci.md)。
+本机十五项工具测试已通过。GitHub CI 配置覆盖 Windows/Linux 与 Python 3.10/3.12，远程结果以 [Actions](https://github.com/tjt253856563-glitch/proactive-advisor/actions/workflows/checks.yml) 中对应提交的记录为准。检查范围见 [CI 说明](docs/ci.md)。
 
 ## 欢迎反馈
 
