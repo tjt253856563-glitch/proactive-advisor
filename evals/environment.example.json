@@ -1,0 +1,8 @@
+{
+  "model": "REPLACE_WITH_EXACT_MODEL_VERSION",
+  "client": "Codex CLI; replace with actual version from codex --version",
+  "reasoning_effort": "record the actual setting",
+  "sandbox": "workspace-write",
+  "other_skills_and_instructions": "record shared user/project/global instructions; remove target skill from baseline discovery",
+  "notes": "Self-reported environment; the harness does not verify model identity or client isolation"
+}

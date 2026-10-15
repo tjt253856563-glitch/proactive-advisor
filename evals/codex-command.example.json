@@ -1,0 +1,12 @@
+[
+  "codex",
+  "exec",
+  "--json",
+  "--ephemeral",
+  "--sandbox",
+  "workspace-write",
+  "--skip-git-repo-check",
+  "--output-last-message",
+  "{response}",
+  "-"
+]

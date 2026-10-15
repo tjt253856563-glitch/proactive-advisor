@@ -1,0 +1,21 @@
+name: Installation issue / 安装问题
+description: Report a reproducible install, discovery or uninstall issue
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: OS, Python and client versions / 环境版本
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Command, expected result and actual error / 复现步骤
+      description: Remove account names, private absolute paths and credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: discovery
+    attributes:
+      label: Skill discovery and read evidence / 发现与加载情况
+      description: Separate copying a folder from the client reading and using it.

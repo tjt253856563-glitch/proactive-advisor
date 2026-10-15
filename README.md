@@ -1,5 +1,7 @@
 # Proactive Advisor（实验项目）
 
+[English](README.en.md) · [安装与卸载](docs/installation.md) · [可复现评测](evals/README.md) · [提交反馈](https://github.com/tjt253856563-glitch/proactive-advisor/issues/new/choose)
+
 一套用于减少 AI 助手偏题、只建议不执行，以及没有证据却报告完成的行为约束。适合已有目标下的方案评审、文件修改和任务接续。
 
 **当前没有证据证明它普遍提高了解决问题能力。** 首轮探索性对照中，不加载该 Skill 的模型也能完成大部分关键行为。这个项目公开规则、失败现象和评测方法，邀请真实使用反馈。
@@ -18,9 +20,13 @@ Experimental behavior guidance for AI assistants: preserve the user's goal, comp
 
 ## 安装和使用
 
-Skill 文件在 `skills/proactive-advisor/`。将整个目录放入目标客户端支持的 Skills 目录；客户端的发现机制和工具权限需要分别验证。
+当前先支持 Codex 项目级目录，辅助脚本需要 Python 3.10+。在本仓库根目录运行：
 
-Codex 的项目级安装示例：把这个目录复制到项目的 `.agents/skills/proactive-advisor/`，随后在新会话中显式调用 `$proactive-advisor`。也可以先不安装，要求助手读取本项目中的 `skills/proactive-advisor/SKILL.md`。
+```sh
+python scripts/install.py install --project "你的项目绝对路径"
+```
+
+脚本复制 `skills/proactive-advisor/` 到目标项目的 `.agents/skills/proactive-advisor/`，核对文件哈希，拒绝覆盖已有目录。在目标项目的新会话中显式调用 `$proactive-advisor`。也可以不安装，要求助手读取本项目的 `skills/proactive-advisor/SKILL.md`。
 
 示例请求：
 
@@ -29,6 +35,8 @@ Codex 的项目级安装示例：把这个目录复制到项目的 `.agents/skil
 请先验证客户端能发现该 Skill、确实读取了它、行为符合任务要求。文件存在或助手自述“已使用”都不足以证明加载成功。安装到 Codex 也不代表已安装到 ChatGPT Work。
 
 规则以中文编写，包含创建者工作流程中的示例约束。这些例子应结合当前任务使用，不应覆盖用户的新指令。
+
+卸载：`python scripts/install.py uninstall --project "你的项目绝对路径"`。发现用户修改或新增文件时拒绝自动删除。完整操作和支持边界见 [安装说明](docs/installation.md)。
 
 ## 当前评测结果
 
@@ -43,6 +51,18 @@ Codex 的项目级安装示例：把这个目录复制到项目的 `.agents/skil
 
 当前目录中的 Skill 是 **v1.2 候选**，不把它标为已经证实优于 v1.1 的版本。
 
+## 可重复运行的项目工具
+
+现在提供十个公开案例：八个先前任务的重构，以及两个尚未用于这轮行为测试的合成保留案例；不冒充十个真实用户事故。标准库评测工具可建立配对目录、随机安排运行顺序、保存输出/命令日志/文件哈希和差异、导出匿名评分包。运行故障、机械文件检查和人工行为评分分别统计；未评分不会变成 PASS。
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+自动检查覆盖安装与卸载保护、评测隔离、真实文件变化、失败/超时分类和评分证据要求。**这些是项目工具测试，不是新增模型效果结果。** 本轮没有宣称完成新的在线模型对照或外部用户试用。运行方法、客户端配置污染和匿名评分的限制见 [评测操作说明](evals/README.md)。
+
+本机十五项工具测试已通过。GitHub CI 因当前 OAuth 凭据缺少 workflow 权限尚未启用，配置与启用步骤见 [CI 草案](docs/ci.md)。
+
 ## 欢迎反馈
 
 最有价值的反馈是可以复现的失败案例：
@@ -53,6 +73,8 @@ Codex 的项目级安装示例：把这个目录复制到项目的 `.agents/skil
 4. 哪个具体行为需要改进，例如偏题、扩大修改范围或虚报完成。
 
 请删除账号、凭据、私人对话和业务敏感信息后再提交。只看格式变化、一次通过或 Star 数量，都不能证明规则有效。
+
+可直接使用 [行为反馈](https://github.com/tjt253856563-glitch/proactive-advisor/issues/new?template=behavior.yml) 或 [安装问题](https://github.com/tjt253856563-glitch/proactive-advisor/issues/new?template=installation.yml) 模板；参与方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 设计参考
 
