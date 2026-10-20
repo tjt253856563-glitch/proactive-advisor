@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "freshness-guard",
+  "version": "2.0.1",
+  "description": "核验当前高管、模型发布和产品权限，优先官方原文并明确时间与证据不足。",
+  "author": {
+    "name": "Plugin owner"
+  },
+  "keywords": [
+    "时效核验",
+    "官方来源",
+    "模型发布",
+    "CEO",
+    "产品权限"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Freshness Guard",
+        "shortDescription": "先核验，再回答当前事实",
+        "longDescription": "用于 Chat 与 Work 的时效核验工作流。核对官方原文、发布时间、事件与生效日期，识别索引版本差异并处理来源冲突。依赖当前界面已有检索工具；不保证实时完整覆盖或每次自动触发。",
+        "developerName": "Plugin owner",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": "核验这个问题的当前事实，优先打开官方原文，并说明截至时间及无法验证的部分。",
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

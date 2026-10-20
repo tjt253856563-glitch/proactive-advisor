@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "claims[0]: publication date unknown; do not infer from retrieval date",
+    "claims[1]: publication date unknown; do not infer from retrieval date",
+    "claims[6]: publication date unknown; do not infer from retrieval date"
+  ],
+  "claims": 7,
+  "verified": 6,
+  "notice": "Structural gates only. Semantic support, authenticity and source independence remain reviewer judgments."
+}

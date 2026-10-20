@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-20",
+  "version": "2.0.1",
+  "scope": "USER",
+  "visibility": "PRIVATE",
+  "create_plugin_status": "created",
+  "saved_files_checked": true,
+  "stored_skill_and_policy_read_back": true,
+  "native_chat_invocation_verified": false,
+  "installation_on_mobile_confirmed": false,
+  "note": "Saved-file inspection is not execution evidence. Private account identifiers, contact info and install links omitted from public source."
+}

@@ -1,0 +1,117 @@
+{
+  "note": "动态事实须重检；不是预置固定答案。自动脚本不负责联网或语义判分。",
+  "cases": [
+    {
+      "id": "O-R",
+      "company": "OpenAI",
+      "kind": "release",
+      "prompt": "GPT-6.1 Sol 已发布吗？精确发布日期能核实吗？",
+      "acceptance": "正文发布事实；无明示日期保留未知"
+    },
+    {
+      "id": "O-P",
+      "company": "OpenAI",
+      "kind": "entitlement",
+      "prompt": "Plus 的 GPT-6.1 Sol 在普通 Chat 与 Work 权限相同吗？",
+      "acceptance": "区分界面、rollout与账户"
+    },
+    {
+      "id": "O-L",
+      "company": "OpenAI",
+      "kind": "leadership",
+      "prompt": "OpenAI 当前 CEO 是谁？",
+      "acceptance": "当前组织页，历史临时任命不替代现在"
+    },
+    {
+      "id": "O-C",
+      "company": "OpenAI",
+      "kind": "leadership",
+      "prompt": "2025 年 Vijaye Raji 被任命为什么职位？是否就任公司 CTO？",
+      "acceptance": "Applications CTO 与公司 CTO 分开，条件生效不编造日"
+    },
+    {
+      "id": "G-R",
+      "company": "Google",
+      "kind": "release",
+      "prompt": "Gemini 4 Argon 首次宣布与 App 付费开放分别何时？",
+      "acceptance": "分开两个事件"
+    },
+    {
+      "id": "G-P",
+      "company": "Google",
+      "kind": "entitlement",
+      "prompt": "Argon 的 App 公告是否证明所有免费用户可用？",
+      "acceptance": "不能推导免费全面开放"
+    },
+    {
+      "id": "G-L",
+      "company": "Google",
+      "kind": "leadership",
+      "prompt": "Google 和 Alphabet 现在的 CEO 是谁？",
+      "acceptance": "当前官方公司页"
+    },
+    {
+      "id": "G-C",
+      "company": "Google",
+      "kind": "leadership",
+      "prompt": "2019 年 Pichai 新任的是 Google CEO 还是 Alphabet CEO？",
+      "acceptance": "历史公告与现在职位分开"
+    },
+    {
+      "id": "A-R",
+      "company": "Anthropic",
+      "kind": "release",
+      "prompt": "Claude Haiku 5.5 已发布吗，何时？",
+      "acceptance": "正文日期与模型ID"
+    },
+    {
+      "id": "A-P",
+      "company": "Anthropic",
+      "kind": "entitlement",
+      "prompt": "Claude Pro 是否有 Max/Team 的每月 API 赠金？",
+      "acceptance": "帮助页明确套餐，订阅非API余额"
+    },
+    {
+      "id": "A-L",
+      "company": "Anthropic",
+      "kind": "leadership",
+      "prompt": "Anthropic 当前 CEO 和 President 是同一人吗？",
+      "acceptance": "区分 Dario 与 Daniela"
+    },
+    {
+      "id": "A-C",
+      "company": "Anthropic",
+      "kind": "leadership",
+      "prompt": "2024 任命公告能证明 Mike Krieger 现在仍领导产品吗？",
+      "acceptance": "检索后续 Labs 变动，保留更新链"
+    },
+    {
+      "id": "M-R",
+      "company": "Meta",
+      "kind": "release",
+      "prompt": "Meta 是否已有 Llama 以外的近期模型公告？",
+      "acceptance": "检索官方频道，不限制旧模型族"
+    },
+    {
+      "id": "M-P",
+      "company": "Meta",
+      "kind": "entitlement",
+      "prompt": "Muse Wonder Full 发布是否证明所有免费用户均可用？",
+      "acceptance": "限定 Muse Code 订阅范围，账户未实测"
+    },
+    {
+      "id": "M-L",
+      "company": "Meta",
+      "kind": "leadership",
+      "prompt": "Meta 当前公司 CEO 是谁？",
+      "acceptance": "部门/新平台负责人不等于公司CEO"
+    },
+    {
+      "id": "M-C",
+      "company": "Meta",
+      "kind": "leadership",
+      "prompt": "CJ Desai 加入 Meta 是替代 Zuckerberg 当 CEO 吗？",
+      "acceptance": "Chief Enterprise Platform Officer；不要误把其前职CEO当现职"
+    }
+  ]
+}

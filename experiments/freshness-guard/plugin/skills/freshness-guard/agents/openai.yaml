@@ -1,0 +1,6 @@
+interface:
+  display_name: Freshness Guard
+  short_description: 核验当前职位、模型发布与产品权限
+  default_prompt: 核验我的问题，先查官方原文，区分日期与权限范围；无法验证时明确说明。
+policy:
+  allow_implicit_invocation: true

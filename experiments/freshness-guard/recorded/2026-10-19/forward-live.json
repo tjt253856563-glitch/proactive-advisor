@@ -1,0 +1,196 @@
+{
+  "as_of": "2026-10-19T14:05:44+08:00",
+  "claims": [
+    {
+      "id": "o-release",
+      "company": "OpenAI",
+      "kind": "release",
+      "claim": "GPT-6.1 Sol 已发布",
+      "status": "verified",
+      "scope": "官方公告；Work、Codex、API",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": null,
+          "event_at": null,
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L35; L113-114",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "openai.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "精确发布日期 unknown"
+    },
+    {
+      "id": "o-access",
+      "company": "OpenAI",
+      "kind": "entitlement",
+      "claim": "Plus 的 GPT-6.1 Sol 资格在 Work/Codex 与普通 Chat 不同",
+      "status": "verified",
+      "scope": "界面：Work/Codex 与普通 Chat；套餐：Plus；地区：适用支持地区，未全面核对地区清单",
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": null,
+          "event_at": null,
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L19-25",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "help.openai.com"
+        },
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": null,
+          "event_at": null,
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L113-114",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "openai.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "计划资格，受 rollout 与工作区设置限制；未观察账户",
+      "access_level": "plan"
+    },
+    {
+      "id": "g-release",
+      "company": "Google",
+      "kind": "release",
+      "claim": "Gemini 4 Argon 于 2026-09-30 官方宣布；当时有限 rollout",
+      "status": "verified",
+      "scope": "Gemini 4 Argon，Fairwind 受限开放",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": "2026-09-30",
+          "event_at": "2026-09-30",
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L214-249",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "blog.google"
+        }
+      ],
+      "conflict": false,
+      "limitation": "不等于全球公众开放"
+    },
+    {
+      "id": "g-access",
+      "company": "Google",
+      "kind": "entitlement",
+      "claim": "2026-10-13 Gemini App 公告向 Google AI Pro/Ultra 提供 Argon",
+      "status": "verified",
+      "scope": "界面：Gemini App；套餐：Google AI Pro/Ultra；地区：公告未明确完整地区限制",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": "2026-10-13",
+          "event_at": "2026-10-13",
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L210-222",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "blog.google"
+        }
+      ],
+      "conflict": false,
+      "limitation": "不支持所有免费用户可用；未实测账户",
+      "access_level": "announcement"
+    },
+    {
+      "id": "g-free",
+      "company": "Google",
+      "kind": "entitlement",
+      "claim": "现在全球所有免费用户都可用 Gemini 4 Argon",
+      "status": "unknown",
+      "scope": "界面：Gemini App；套餐：Free；地区：全球",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": "2026-10-13",
+          "event_at": "2026-10-13",
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L222 仅列 Pro/Ultra",
+          "supports_exact": false,
+          "current_scope": true,
+          "origin": "blog.google"
+        }
+      ],
+      "conflict": false,
+      "limitation": "当前完整免费权限正文未获取，不能扩张付费公告",
+      "access_level": "plan"
+    },
+    {
+      "id": "a-release",
+      "company": "Anthropic",
+      "kind": "release",
+      "claim": "已确认 2026-10-07 发布 Claude Haiku 5.5",
+      "status": "verified",
+      "scope": "Claude 模型官方发布公告",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-haiku-5-5",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": "2026-10-07",
+          "event_at": "2026-10-07",
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L17-27; L150-152",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "www.anthropic.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "已确认一次发布，不声称所有渠道绝对最新"
+    },
+    {
+      "id": "m-release",
+      "company": "Meta",
+      "kind": "release",
+      "claim": "Meta 已推出 Muse Wonder 与 Muse Wonder Full，不止 Llama",
+      "status": "verified",
+      "scope": "模型发布：Meta Model API/Muse Code；不是 Muse 全体用户开放或开放权重",
+      "sources": [
+        {
+          "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:05:44+08:00",
+          "published_at": null,
+          "event_at": null,
+          "date_note": "日期仅精确到日；未知保留 null",
+          "locator": "L239-252",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "about.fb.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "页头 2026-10-12 与 10-13 未标注语义，精确事件日期 unknown"
+    }
+  ]
+}

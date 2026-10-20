@@ -1,0 +1,465 @@
+{
+  "as_of": "2026-10-19T14:08:46+08:00",
+  "method": "Work search/open + reviewer-scoped claims; no standalone fact-accuracy oracle",
+  "claims": [
+    {
+      "id": "O-R",
+      "company": "OpenAI",
+      "kind": "release",
+      "claim": "GPT-6.1 Sol 官方已公告发布；精确发表日未能核实",
+      "status": "verified",
+      "scope": "Work/Codex/API，公告存在",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn11view0 L35, L113-114",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "openai.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "原文可见正文无发布日期；不推断绝对最新"
+    },
+    {
+      "id": "O-P",
+      "company": "OpenAI",
+      "kind": "entitlement",
+      "claim": "Plus 在 Work/Codex 有 GPT-6.1 Sol 计划资格；普通 Chat 不提供该型号",
+      "status": "verified",
+      "scope": "界面 Work/Codex/普通Chat；套餐Plus；地区未全面核查",
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn11view0 L114",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "openai.com"
+        },
+        {
+          "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn17view3 L19-25",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "help.openai.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "rollout、工作区及地区仍有限制；未实测账户",
+      "access_level": "plan"
+    },
+    {
+      "id": "O-L",
+      "company": "OpenAI",
+      "kind": "leadership",
+      "claim": "当前官方组织页列 CEO Sam Altman",
+      "status": "verified",
+      "scope": "当前组织页，不推导任命生效日",
+      "sources": [
+        {
+          "url": "https://openai.com/our-structure/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn9view1 L27-31; turn16view0",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "openai.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": ""
+    },
+    {
+      "id": "O-C",
+      "company": "OpenAI",
+      "kind": "leadership",
+      "claim": "2025-09-02 公告宣布 Vijaye Raji 将任 CTO of Applications，随收购完成生效",
+      "status": "verified",
+      "scope": "Applications 部门；任命预告",
+      "sources": [
+        {
+          "url": "https://openai.com/index/vijaye-raji-to-become-cto-of-applications-with-acquisition-of-statsig/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2025-09-02",
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "发表日明确；收购完成与职位生效精确日未核实",
+          "locator": "turn22view0 L13,24,37-40",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "openai.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "不能据此断言公司级 CTO 或精确就任日",
+      "event_phase": "announced"
+    },
+    {
+      "id": "G-R",
+      "company": "Google",
+      "kind": "release",
+      "claim": "Gemini 4 Argon 于 2026-09-30 公告；2026-10-13 是 App 付费开放事件",
+      "status": "verified",
+      "scope": "公告与App开放两个事件",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2026-09-30",
+          "event_at": "2026-09-30",
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "日期到日；首次公告与受限开放",
+          "locator": "turn20view1 L216,233",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "blog.google"
+        },
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2026-10-13",
+          "event_at": "2026-10-13",
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "App向指定付费订阅者开放",
+          "locator": "turn11view1 L212,222",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "blog.google"
+        }
+      ],
+      "conflict": false,
+      "limitation": ""
+    },
+    {
+      "id": "G-P",
+      "company": "Google",
+      "kind": "entitlement",
+      "claim": "所有地区免费账户当前均可用 Argon",
+      "status": "unknown",
+      "scope": "界面Gemini App；套餐Free；所有地区",
+      "sources": [],
+      "conflict": false,
+      "limitation": "打开的公告只证明 Pro/Ultra 资格，不能推导免费账户完整现状；无账户观察",
+      "access_level": "plan",
+      "checked_sources": [
+        "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/"
+      ]
+    },
+    {
+      "id": "G-L",
+      "company": "Google",
+      "kind": "leadership",
+      "claim": "当前官方公司页列 Sundar Pichai 为 Google 和 Alphabet CEO",
+      "status": "verified",
+      "scope": "当前公司介绍",
+      "sources": [
+        {
+          "url": "https://about.google/company-info/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn9view2 L26-31; turn16view1",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "about.google"
+        }
+      ],
+      "conflict": false,
+      "limitation": ""
+    },
+    {
+      "id": "G-C",
+      "company": "Google",
+      "kind": "leadership",
+      "claim": "2019-12-03 公告说明 Pichai 将兼任 Alphabet CEO，其 Google CEO 身份此前已存在",
+      "status": "verified",
+      "scope": "历史任命，不当成2026新任命",
+      "sources": [
+        {
+          "url": "https://blog.google/alphabet/letter-from-larry-and-sergey/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2019-12-03",
+          "event_at": "2019-12-03",
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "公告到日；不编造具体时分",
+          "locator": "turn16view5 L216,242,244",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "blog.google"
+        }
+      ],
+      "conflict": false,
+      "limitation": "",
+      "event_phase": "announced"
+    },
+    {
+      "id": "A-R",
+      "company": "Anthropic",
+      "kind": "release",
+      "claim": "Claude Haiku 5.5 发布公告日期为 2026-10-07",
+      "status": "verified",
+      "scope": "该型号发布存在，不断言绝对最新",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-haiku-5-5",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2026-10-07",
+          "event_at": "2026-10-07",
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "明确正文日期",
+          "locator": "turn11view2 L17,27; turn4view2 L150-152",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "www.anthropic.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": ""
+    },
+    {
+      "id": "A-P",
+      "company": "Anthropic",
+      "kind": "entitlement",
+      "claim": "Claude Pro 不在当前 Max/Team 每月 API 赠金资格内",
+      "status": "verified",
+      "scope": "界面Claude Platform赠金；套餐Pro；地区未逐一核对",
+      "sources": [
+        {
+          "url": "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn17view2 L44-46,155-157",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "support.claude.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "不涉及用户实际账户或其他促销",
+      "access_level": "plan"
+    },
+    {
+      "id": "A-L",
+      "company": "Anthropic",
+      "kind": "leadership",
+      "claim": "当前官方领导页中 Dario Amodei 为 CEO，Daniela Amodei 为 President",
+      "status": "verified",
+      "scope": "当前公司领导页",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/company/leadership",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn6view2 CEO and President; turn16view2",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "www.anthropic.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": ""
+    },
+    {
+      "id": "A-C",
+      "company": "Anthropic",
+      "kind": "leadership",
+      "claim": "2026-01-13 公告称 Mike Krieger 转入 Labs，Ami Vora 将领导 Product；旧任命不能独自证明现在仍由 Mike 领导产品",
+      "status": "verified",
+      "scope": "2024任命至2026变更链",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/news/mike-krieger-joins-anthropic",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2024-05-15",
+          "event_at": "2024-05-15",
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "历史任命",
+          "locator": "turn16view6 L11-15",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "www.anthropic.com"
+        },
+        {
+          "url": "https://www.anthropic.com/news/introducing-anthropic-labs?mode=reply",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": "2026-01-13",
+          "event_at": "2026-01-13",
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "后续明确更新组织职责",
+          "locator": "turn22view2 L13,19-20",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "www.anthropic.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "",
+      "resolution": "2026公告更新2024任命的职责范围；未把将领导改写为精确就任时分"
+    },
+    {
+      "id": "M-R",
+      "company": "Meta",
+      "kind": "release",
+      "claim": "Meta 已公告 Muse Wonder 与 Muse Wonder Full，近期模型不限于 Llama",
+      "status": "verified",
+      "scope": "模型公告存在；非全渠道最新认证",
+      "sources": [
+        {
+          "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn20view0 L239-252",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "about.fb.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "页头并列2026-10-12/13，无标签；精确发表/修订/事件日未知"
+    },
+    {
+      "id": "M-P",
+      "company": "Meta",
+      "kind": "entitlement",
+      "claim": "Muse Wonder Full 现在对所有免费用户全面可用",
+      "status": "unknown",
+      "scope": "界面Muse/Muse Code；套餐Free；所有地区",
+      "sources": [],
+      "conflict": false,
+      "limitation": "公告仅确认 Muse Code subscribers，不能推导免费普遍可用；未实测账户",
+      "access_level": "plan",
+      "checked_sources": [
+        "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+      ]
+    },
+    {
+      "id": "M-L",
+      "company": "Meta",
+      "kind": "leadership",
+      "claim": "当前官方领导页列 Mark Zuckerberg 为 Founder, Chairman and CEO",
+      "status": "verified",
+      "scope": "公司CEO；非企业平台负责人",
+      "sources": [
+        {
+          "url": "https://investor.atmeta.com/leadership-and-governance/default.aspx?section=management",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面无精确发表/修订日；本轮通过检索服务打开正文，缓存精确时间未知",
+          "locator": "turn6view3 L126-128; turn16view3",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "investor.atmeta.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": ""
+    },
+    {
+      "id": "M-C",
+      "company": "Meta",
+      "kind": "leadership",
+      "claim": "CJ Desai 的 Meta 任命是 Chief Enterprise Platform Officer；其原 MongoDB CEO 身份不等于 Meta CEO",
+      "status": "verified",
+      "scope": "任命公告范围，不扩张为公司CEO",
+      "sources": [
+        {
+          "url": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/amp/",
+          "official": true,
+          "opened": true,
+          "retrieval_at": "2026-10-19T14:08:46+08:00",
+          "published_at": null,
+          "event_at": null,
+          "updated_at": null,
+          "crawled_at": null,
+          "date_note": "页面仅3 weeks ago，无精确锚点；URL年月不当发布日期",
+          "locator": "turn22view1 L7,11,15",
+          "supports_exact": true,
+          "current_scope": true,
+          "origin": "about.fb.com"
+        }
+      ],
+      "conflict": false,
+      "limitation": "精确发表日及正式生效日未验证",
+      "event_phase": "announced"
+    }
+  ]
+}

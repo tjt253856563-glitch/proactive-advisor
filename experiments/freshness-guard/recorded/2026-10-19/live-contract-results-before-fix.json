@@ -1,0 +1,21 @@
+{
+  "ok": false,
+  "errors": [
+    "claims[6].sources[0]: official domain mismatch",
+    "claims[6]: verified requires opened exact in-scope official source"
+  ],
+  "warnings": [
+    "claims[0]: publication date unknown; do not infer from retrieval date",
+    "claims[1]: publication date unknown; do not infer from retrieval date",
+    "claims[2]: publication date unknown; do not infer from retrieval date",
+    "claims[6]: publication date unknown; do not infer from retrieval date",
+    "claims[9]: publication date unknown; do not infer from retrieval date",
+    "claims[10]: publication date unknown; do not infer from retrieval date",
+    "claims[12]: publication date unknown; do not infer from retrieval date",
+    "claims[14]: publication date unknown; do not infer from retrieval date",
+    "claims[15]: publication date unknown; do not infer from retrieval date"
+  ],
+  "claims": 16,
+  "verified": 14,
+  "notice": "Structural gates only. Semantic support, authenticity and source independence remain reviewer judgments."
+}
