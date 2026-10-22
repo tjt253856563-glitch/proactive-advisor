@@ -1,0 +1,520 @@
+{
+  "status": "incomplete",
+  "planned": 48,
+  "accepted": 0,
+  "paired_trials": 0,
+  "pending": [
+    {
+      "trial": "t0001",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0002",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0003",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0004",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0005",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0006",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0007",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0008",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0009",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0010",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0011",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0012",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0013",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0014",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0015",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0016",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0017",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0018",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0019",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0020",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0021",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0022",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0023",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0024",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0025",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0026",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0027",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0028",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0029",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0030",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0031",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0032",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0033",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0034",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0035",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0036",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0037",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0038",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0039",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0040",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0041",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0042",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0043",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0044",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0045",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0046",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0047",
+      "reason": "missing output"
+    },
+    {
+      "trial": "t0048",
+      "reason": "missing output"
+    }
+  ],
+  "invalid": [],
+  "unpaired": [
+    {
+      "case": "meta-release",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "api-subscription",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "google-release",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "anthropic-release",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "translation",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "future-effective",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "physics",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "plan-account",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "google-ceo",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "anthropic-leaders",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "arithmetic",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "sorting",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "openai-release",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "no-results",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "apple-ceo",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    },
+    {
+      "case": "meta-ceo",
+      "repeat": 0,
+      "accepted": 0,
+      "configurations": 0,
+      "plugin_versions": 0,
+      "window_seconds": null
+    }
+  ],
+  "conditions": {
+    "baseline": {
+      "correct": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "unsupported_certain": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "abstained": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "unnecessary_search": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "trace_observations": {
+        "skill_loaded": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        },
+        "searched": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        },
+        "opened_original": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        }
+      },
+      "mean_seconds": null,
+      "extra_actions": 0
+    },
+    "implicit": {
+      "correct": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "unsupported_certain": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "abstained": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "unnecessary_search": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "trace_observations": {
+        "skill_loaded": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        },
+        "searched": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        },
+        "opened_original": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        }
+      },
+      "mean_seconds": null,
+      "extra_actions": 0
+    },
+    "explicit": {
+      "correct": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "unsupported_certain": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "abstained": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "unnecessary_search": {
+        "n": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "trace_observations": {
+        "skill_loaded": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        },
+        "searched": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        },
+        "opened_original": {
+          "true": 0,
+          "false": 0,
+          "unobservable": 0
+        }
+      },
+      "mean_seconds": null,
+      "extra_actions": 0
+    }
+  },
+  "paired_differences_vs_baseline": {
+    "implicit": {
+      "correct": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      },
+      "unsupported_certain": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      },
+      "abstained": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      },
+      "unnecessary_search": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      }
+    },
+    "explicit": {
+      "correct": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      },
+      "unsupported_certain": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      },
+      "abstained": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      },
+      "unnecessary_search": {
+        "pairs": 0,
+        "mean_delta": null,
+        "up": 0,
+        "down": 0,
+        "tied": 0
+      }
+    }
+  },
+  "causal_improvement_proven": false,
+  "notice": "Declared metadata/judgments are not authenticated. Wilson intervals describe trials, not independent case clusters. No automatic efficacy verdict; inspect paired case differences, repetition dependence, contamination and blinding leaks."
+}

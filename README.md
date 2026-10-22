@@ -40,7 +40,7 @@ python scripts/install.py install --project "你的项目绝对路径"
 
 ## 当前评测结果
 
-新增：[Freshness Guard 时效核验实验](experiments/freshness-guard/README.md)。公开 v2.0/插件版2.0.1源码、40/43项结构回归、历史联网记录和失败案例。私人插件已创建；普通Chat的稳定调用与相对准确率收益尚未验证，结构测试通过不代表解决了过时信息或幻觉问题。
+[Freshness Guard 2.1.0 时效核验实验](experiments/freshness-guard/README.md)（[English](experiments/freshness-guard/README.en.md)）：公开证据检查器修复、三条件配对评测工具、43项既有结构回归和14个新增回归方法、历史联网记录及失败案例。已整理中英报告与待测计划；普通Chat真实试次仍为0/48，尚未证明准确率提升。
 
 新增：[上下文承接实验](experiments/context-followthrough/README.md)。围绕“总结 A/B 时重新回答原题”的失误描述，提供精简技能草稿、三种场景、可运行工具和九次实际回答。三种条件均通过，尚未观察到额外收益；原失败轮并未完整找回，本轮是重构，不能声称 Work 已修复。草稿尚未做行为验证，也未替换默认安装的技能。
 
