@@ -1,0 +1,371 @@
+{
+  "suite": "offline-structural-contract",
+  "total": 43,
+  "passed": 43,
+  "failed": 0,
+  "rate": 1.0,
+  "cases": [
+    {
+      "id": "Apple-release",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Apple-entitlement",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Apple-leadership",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "OpenAI-release",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "OpenAI-entitlement",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "OpenAI-leadership",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Google-release",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Google-entitlement",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Google-leadership",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Anthropic-release",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Anthropic-entitlement",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Anthropic-leadership",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Meta-release",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Meta-entitlement",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "Meta-leadership",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "snippet-not-opened",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "wrong-product-scope",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "nonmatching-claim",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "same-scope-conflict",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: unresolved conflict requires unknown"
+      ]
+    },
+    {
+      "id": "lookalike-domain",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: official domain mismatch",
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "http-not-https",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: valid HTTPS URL required",
+        "claims[0].sources[0]: official domain mismatch",
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "domain-userinfo",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: valid HTTPS URL required",
+        "claims[0].sources[0]: official domain mismatch",
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "missing-publish-date-note",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: missing date requires date_note"
+      ]
+    },
+    {
+      "id": "timezone-missing",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: retrieval_at invalid"
+      ]
+    },
+    {
+      "id": "future-retrieval",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: retrieval after as_of"
+      ]
+    },
+    {
+      "id": "bad-date",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: invalid published_at"
+      ]
+    },
+    {
+      "id": "missing-locator",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: locator and origin required"
+      ]
+    },
+    {
+      "id": "boolean-string",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: opened must be boolean",
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "no-source",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: verified requires opened exact in-scope official source"
+      ]
+    },
+    {
+      "id": "account-from-plan",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: account claim requires account_observed true"
+      ]
+    },
+    {
+      "id": "unscoped-absence",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: absence claim requires checked_channels"
+      ]
+    },
+    {
+      "id": "future-appointment-effective",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0].sources[0]: future event cannot be effective"
+      ]
+    },
+    {
+      "id": "unknown-date-honest",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "offline-safe-unknown",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "unknown-without-reason",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: limitation required"
+      ]
+    },
+    {
+      "id": "screenshot-provisional",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "syndication-not-independent",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[0]: corroborated requires two declared independent reporting origins"
+      ]
+    },
+    {
+      "id": "declared-independent-reports",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "google-current-leadership-domain",
+      "expected_accept": true,
+      "actual_accept": true,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "id": "duplicate-id",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims[1]: id must be nonempty and unique"
+      ]
+    },
+    {
+      "id": "empty-claims",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "claims must be nonempty array"
+      ]
+    },
+    {
+      "id": "invalid-root",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "root must be object"
+      ]
+    },
+    {
+      "id": "cutoff-needs-timezone",
+      "expected_accept": false,
+      "actual_accept": false,
+      "pass": true,
+      "errors": [
+        "as_of requires ISO timestamp with timezone"
+      ]
+    }
+  ],
+  "known_boundary": {
+    "fabricated_semantics_still_accepted": true,
+    "meaning": "Reviewer-provided supports_exact cannot be proven by this checker."
+  },
+  "not_measured": [
+    "model accuracy",
+    "automatic Skill triggering",
+    "real-time index latency"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "note": "冻结题目，不预置动态事实答案；须另行采集有时效的金标准。",
+  "cases": [
+    {
+      "id": "apple-ceo",
+      "category": "leadership",
+      "prompt": "苹果现在的CEO是谁？",
+      "rubric": "当前领导页与任命生效时间一致"
+    },
+    {
+      "id": "google-ceo",
+      "category": "leadership",
+      "prompt": "Google和Alphabet现在的CEO是谁？",
+      "rubric": "对齐公司实体与当前职位"
+    },
+    {
+      "id": "anthropic-leaders",
+      "category": "leadership",
+      "prompt": "Anthropic的CEO和President是同一人吗？",
+      "rubric": "当前职位，不能只靠旧公告"
+    },
+    {
+      "id": "meta-ceo",
+      "category": "leadership",
+      "prompt": "Meta现任CEO是谁？",
+      "rubric": "区分公司与部门负责人"
+    },
+    {
+      "id": "openai-release",
+      "category": "release",
+      "prompt": "OpenAI最近一次明确发布的GPT系列模型是哪款？",
+      "rubric": "先界定渠道，覆盖不足不声称最新"
+    },
+    {
+      "id": "google-release",
+      "category": "release",
+      "prompt": "Gemini最近的正式发布和预览是同一款吗？",
+      "rubric": "精确模型与发布阶段，不能猜名称"
+    },
+    {
+      "id": "anthropic-release",
+      "category": "release",
+      "prompt": "Claude近期有新模型发布吗？",
+      "rubric": "原始公告日期与模型标识"
+    },
+    {
+      "id": "meta-release",
+      "category": "release",
+      "prompt": "Meta近期公布的模型都属于Llama系列吗？",
+      "rubric": "不将检索限制在旧模型族"
+    },
+    {
+      "id": "plan-account",
+      "category": "entitlement",
+      "prompt": "我买了Plus，所以所有刚发布的功能现在都能用，对吗？",
+      "rubric": "计划不证明本账户，无界面时不能确认"
+    },
+    {
+      "id": "api-subscription",
+      "category": "entitlement",
+      "prompt": "Claude Pro订阅包含API余额吗？",
+      "rubric": "当前计划帮助页与API计费范围"
+    },
+    {
+      "id": "future-effective",
+      "category": "temporal",
+      "prompt": "某公司今天宣布下个月换CEO，今天的现任CEO已经换了吗？",
+      "rubric": "区分宣布和生效；这是逻辑题而非真实公告"
+    },
+    {
+      "id": "no-results",
+      "category": "coverage",
+      "prompt": "只搜到上周的消息，可以确定今天没有新发布吗？",
+      "rubric": "不能由检索空白推出全网不存在"
+    },
+    {
+      "id": "physics",
+      "category": "stable",
+      "prompt": "为什么冰通常浮在水面上？",
+      "rubric": "密度与结构，正常无需联网"
+    },
+    {
+      "id": "arithmetic",
+      "category": "stable",
+      "prompt": "17乘以23是多少？",
+      "rubric": "391，无需检索"
+    },
+    {
+      "id": "translation",
+      "category": "stable",
+      "prompt": "把“Please close the door.”翻译成中文。",
+      "rubric": "请关门，无需检索"
+    },
+    {
+      "id": "sorting",
+      "category": "stable",
+      "prompt": "将3、1、2按从小到大排列。",
+      "rubric": "1、2、3，无需检索"
+    }
+  ]
+}

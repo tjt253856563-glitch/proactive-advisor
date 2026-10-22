@@ -15,6 +15,15 @@ DOMAINS = {
 }
 STATUSES = {'verified', 'corroborated', 'provisional', 'unknown'}
 
+def text_value(value):
+    return isinstance(value, str) and bool(value.strip())
+
+def member(value, options):
+    return isinstance(value, str) and value in options
+
+def text_list(value):
+    return isinstance(value, list) and bool(value) and all(text_value(v) for v in value)
+
 def timestamp(value):
     if not isinstance(value, str):
         raise ValueError('timestamp must be a string')
@@ -27,9 +36,9 @@ def official_host(company, url):
     try:
         u = urlsplit(url)
         host = (u.hostname or '').lower()
-        return u.scheme == 'https' and not u.username and not u.password and any(
+        return isinstance(company, str) and u.scheme == 'https' and not u.username and not u.password and any(
             host == d or host.endswith('.' + d) for d in DOMAINS.get(company, ()))
-    except (ValueError, TypeError):
+    except (ValueError, TypeError, AttributeError):
         return False
 
 def check(data):
@@ -59,26 +68,33 @@ def check(data):
         for key in ('claim', 'scope'):
             if not isinstance(c.get(key), str) or not c[key].strip():
                 errors.append(f'{tag}: {key} must be nonempty text')
-        if c.get('company') not in DOMAINS:
+        if not member(c.get('company'), DOMAINS):
             errors.append(tag + ': unsupported company')
         status = c.get('status')
-        if status not in STATUSES:
+        if not member(status, STATUSES):
             errors.append(tag + ': invalid status')
-        if c.get('kind') not in {'release', 'entitlement', 'leadership', 'other'}:
+        if not member(c.get('kind'), {'release', 'entitlement', 'leadership', 'other'}):
             errors.append(tag + ': invalid kind')
         if type(c.get('conflict')) is not bool:
             errors.append(tag + ': conflict must be boolean')
         if c.get('conflict') and status != 'unknown':
             errors.append(tag + ': unresolved conflict requires unknown')
-        if status in {'unknown', 'provisional', 'corroborated'} and not c.get('limitation'):
+        if not isinstance(c.get('limitation'), str):
+            errors.append(tag + ': limitation must be text')
+        if member(status, {'unknown', 'provisional', 'corroborated'}) and not text_value(c.get('limitation')):
             errors.append(tag + ': limitation required')
         if c.get('kind') == 'entitlement':
-            if c.get('access_level') not in {'announcement', 'plan', 'account'}:
+            if not member(c.get('access_level'), {'announcement', 'plan', 'account'}):
                 errors.append(tag + ': access_level required')
             if c.get('access_level') == 'account' and c.get('account_observed') is not True:
                 errors.append(tag + ': account claim requires account_observed true')
-        if c.get('absence_claim') and not c.get('checked_channels'):
+        for key in ('absence_claim', 'account_observed'):
+            if key in c and type(c[key]) is not bool:
+                errors.append(f'{tag}: {key} must be boolean')
+        if c.get('absence_claim') is True and not text_list(c.get('checked_channels')):
             errors.append(tag + ': absence claim requires checked_channels')
+        if 'event_phase' in c and not member(c['event_phase'], {'announced', 'planned', 'effective'}):
+            errors.append(tag + ': invalid event_phase')
         sources = c.get('sources')
         if not isinstance(sources, list):
             errors.append(tag + ': sources must be array'); continue
@@ -99,7 +115,7 @@ def check(data):
                 u = urlsplit(s.get('url', ''))
                 if u.scheme != 'https' or not u.hostname or u.username or u.password:
                     raise ValueError()
-            except (ValueError, TypeError):
+            except (ValueError, TypeError, AttributeError):
                 errors.append(stag + ': valid HTTPS URL required')
             if s.get('official') and not official_host(c.get('company'), s.get('url')):
                 errors.append(stag + ': official domain mismatch')
@@ -109,16 +125,24 @@ def check(data):
                     errors.append(stag + ': retrieval after as_of')
             except (ValueError, TypeError):
                 errors.append(stag + ': retrieval_at invalid'); retrieved = None
-            if not s.get('locator') or not s.get('origin'):
+            if not text_value(s.get('locator')) or not text_value(s.get('origin')):
                 errors.append(stag + ': locator and origin required')
+            if not isinstance(s.get('date_note'), str):
+                errors.append(stag + ': date_note must be text')
             for key in ('published_at', 'event_at', 'updated_at', 'crawled_at'):
                 value = s.get(key)
                 if value is None:
-                    if key in ('published_at', 'event_at') and not s.get('date_note'):
+                    if key in ('published_at', 'event_at') and not text_value(s.get('date_note')):
                         errors.append(stag + ': missing date requires date_note')
                     continue
                 try:
+                    if not isinstance(value, str):
+                        raise ValueError('date must be text or null')
                     parsed = date.fromisoformat(value) if len(value) == 10 else timestamp(value)
+                    if key in ('published_at', 'updated_at', 'crawled_at') and retrieved is not None:
+                        limit = retrieved.date() if type(parsed) is date else retrieved
+                        if parsed > limit:
+                            errors.append(f'{stag}: {key} after retrieval')
                     if key == 'event_at' and c.get('event_phase') == 'effective' and parsed > (cutoff.date() if isinstance(parsed, date) and not isinstance(parsed, datetime) else cutoff):
                         errors.append(stag + ': future event cannot be effective')
                 except (ValueError, TypeError):
@@ -127,7 +151,7 @@ def check(data):
                 eligible.append(s)
         if status == 'verified' and not any(s.get('official') is True and official_host(c.get('company'), s.get('url')) for s in eligible):
             errors.append(tag + ': verified requires opened exact in-scope official source')
-        if status == 'corroborated' and len({s.get('origin') for s in eligible if not s.get('official')}) < 2:
+        if status == 'corroborated' and len({s['origin'].strip().casefold() for s in eligible if s.get('official') is False and text_value(s.get('origin'))}) < 2:
             errors.append(tag + ': corroborated requires two declared independent reporting origins')
         if status == 'verified' and any(s.get('published_at') is None for s in eligible):
             warnings.append(tag + ': publication date unknown; do not infer from retrieval date')
