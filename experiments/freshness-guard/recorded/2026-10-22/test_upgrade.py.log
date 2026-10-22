@@ -1,0 +1,19 @@
+test_empty_is_incomplete (__main__.EvaluationTests.test_empty_is_incomplete) ... ok
+test_frozen_schedule (__main__.EvaluationTests.test_frozen_schedule) ... ok
+test_invalid_scores_do_not_pass (__main__.EvaluationTests.test_invalid_scores_do_not_pass) ... ok
+test_model_mismatch_removes_entire_pair (__main__.EvaluationTests.test_model_mismatch_removes_entire_pair) ... ok
+test_pair_window (__main__.EvaluationTests.test_pair_window) ... ok
+test_paired_metrics_and_blind_export (__main__.EvaluationTests.test_paired_metrics_and_blind_export) ... ok
+test_plugin_version_mismatch (__main__.EvaluationTests.test_plugin_version_mismatch) ... ok
+test_stale_gold (__main__.EvaluationTests.test_stale_gold) ... ok
+test_tampered_raw (__main__.EvaluationTests.test_tampered_raw) ... ok
+test_existing (__main__.EvidenceTests.test_existing) ... ok
+test_future_announcement_allowed (__main__.EvidenceTests.test_future_announcement_allowed) ... ok
+test_origin_normalization (__main__.EvidenceTests.test_origin_normalization) ... ok
+test_specific_rejections (__main__.EvidenceTests.test_specific_rejections) ... ok
+test_wrong_types_do_not_crash (__main__.EvidenceTests.test_wrong_types_do_not_crash) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.750s
+
+OK

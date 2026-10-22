@@ -1,41 +1,207 @@
 {
-  "recorded_on": "2026-10-20",
-  "note": "Hashes refer to published, path-anonymized copies, not original raw tool logs. Outcomes are not regenerated truth labels.",
-  "files": {
-    ".gitignore": "65c449a9610b8dd8255e76529e5ec9bd335bad7b743b30650a626c55b7b280d1",
-    "README.md": "6e7c58997fe441ee6b9c2181e56d2413ee808b2abeb6db9300343f462663826e",
-    "baseline-v2.0/SKILL.md": "ba4f0bbb7a0ba07a7e1224c4a6b85990df4df4b4e729b715c74db369f59c9300",
-    "baseline-v2.0/references/evidence.md": "e3aac792bd6d4b2dea03623fe0b0220e56ac634fcfa269b5d7b1873ff3a769e3",
-    "baseline-v2.0/references/live-cases.json": "27a9a00d3a8007bf202986b98f33f5d7ee204d3d1a4db717acb0107f20b2c83a",
-    "baseline-v2.0/references/sources.md": "ffd1e7ad16420d8922aed052e5dcb8d7774480a2b028f6443233a9c2696cb4ad",
-    "baseline-v2.0/scripts/check_evidence.py": "031d30d35250ef88767a28c231893c1ac69d29c197cc343d412afb7220376027",
-    "baseline-v2.0/scripts/run_tests.py": "0ba6c8517f1b40a4f0b0bb6df15f7f869380d8587974eb65ae43c74d9ab70f2e",
-    "docs/evaluation-plan.md": "d9997db57d7739a6e2b1266b8df0d748119a32d796a8a69fa26084cb9c5ead24",
-    "docs/problems.md": "8f741e2423c38d6f1ca14636f37fef203f2b7c8020036650fc031848dcb1dc2a",
-    "docs/usage.md": "5cc2344d285708cec8deaa0d67024a4220e359e83a6894576d79139ba292f299",
-    "docs/v2.0-historical-report.md": "37a35382917bc302f7b05a1ef024f3183c827077a314d78e5ac38b278146bc50",
-    "package.py": "344a3c6783d182137098ed36b4c69d6e1f56bcf01ae0e64ecddd105632af68cf",
-    "plugin/assets/icon.svg": "4009f4f6b5c6cc5dc77ee11756c7266497405891b8ff5e543fdcf8bf9f6afdb1",
-    "plugin/plugin.json": "562a5dfb0542040de89a90fe44fa215a87a1d3e455b0dbd01af8bdccf21c7c84",
-    "plugin/skills/freshness-guard/SKILL.md": "e3a298201aaf47ea685063140314e8418ead2b93388dac47641843bdd5b88a9a",
-    "plugin/skills/freshness-guard/agents/openai.yaml": "e0046d4170589038c6a46e4d552a4960f09e18959c3408b5bf34babd2d1115d1",
-    "plugin/skills/freshness-guard/references/evidence.md": "e3aac792bd6d4b2dea03623fe0b0220e56ac634fcfa269b5d7b1873ff3a769e3",
-    "plugin/skills/freshness-guard/references/live-cases.json": "924412a99c4cc6f47f412354c23ca6d232291a48c758d2b27c010647e58bcfd1",
-    "plugin/skills/freshness-guard/references/sources.md": "44bdc25bea03d63f2d4fa2c477c2c86798369c1afc35b09a8c8455974fde52b3",
-    "plugin/skills/freshness-guard/scripts/check_evidence.py": "5c58154d75668a8217f1c30e4419b02dba12ffc64f1891dd34ed861115cef75d",
-    "plugin/skills/freshness-guard/scripts/run_tests.py": "dc38e22fe52c442135195cf5d84274245c9dbd1792a2f7a6d2e2c54ceef5415c",
-    "recorded/2026-10-19/forward-contract-results.json": "6b85ea5f4b561ba37592d53e41c7d22f16bf7874c9606d1a2e9a355dda82375c",
-    "recorded/2026-10-19/forward-live.json": "77fdfc630a398cd2ffbd610c33433ab107968ea315a7728c689a49982a3f52df",
-    "recorded/2026-10-19/forward-live.md": "8ff7cb25b7c1e5d2d78afa25b94a84057b149daf6337834d16f61ac7fdaf8cbc",
-    "recorded/2026-10-19/implicit-trial.md": "444a6682c0c22b4af774ec316da33a55f513987fc268c6466d417a987a333d95",
-    "recorded/2026-10-19/live-contract-results-before-fix.json": "d52782bfe3df05e092eaf896b820041110b71a6c2ad8208398d1a0511cee0d8e",
-    "recorded/2026-10-19/live-contract-results.json": "41f86a059634f44c41ea8a2466a1dbb8952f356f360b03bf255cacf716054cd2",
-    "recorded/2026-10-19/live-evidence.json": "d5e024eff42e799edcce2419432b61079c07f88bcea7da5c35f42b5aa5564c25",
-    "recorded/2026-10-19/offline-results.json": "657500c0752ccede8296b2e08d3ff1dd96e89beda1655594a8d5b95dc721904e",
-    "recorded/2026-10-20/forward-live-contract-rerun.json": "6b85ea5f4b561ba37592d53e41c7d22f16bf7874c9606d1a2e9a355dda82375c",
-    "recorded/2026-10-20/live-evidence-contract-rerun.json": "41f86a059634f44c41ea8a2466a1dbb8952f356f360b03bf255cacf716054cd2",
-    "recorded/2026-10-20/offline-results-v2.0-rerun.json": "657500c0752ccede8296b2e08d3ff1dd96e89beda1655594a8d5b95dc721904e",
-    "recorded/2026-10-20/offline-results-v2.0.1.json": "84566124f9945f9bc9a0126eef1d47ab9dfc1e2ab1e3be41c8d18d97523db983",
-    "recorded/2026-10-20/plugin-save-verification.json": "fea36fa6ee9fb52ef4418762170a3f8e8f17723534ea0989e2e2de25f7e6f522"
-  }
+  "updated_at": "2026-10-22",
+  "version": "2.1.0",
+  "notice": "Sanitized public source, bilingual documentation and historical evidence. SHA256 values use UTF-8 text with LF newlines; real Chat contrast remains unexecuted.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "65c449a9610b8dd8255e76529e5ec9bd335bad7b743b30650a626c55b7b280d1"
+    },
+    {
+      "path": "baseline-v2.0/references/evidence.md",
+      "sha256": "e3aac792bd6d4b2dea03623fe0b0220e56ac634fcfa269b5d7b1873ff3a769e3"
+    },
+    {
+      "path": "baseline-v2.0/references/live-cases.json",
+      "sha256": "27a9a00d3a8007bf202986b98f33f5d7ee204d3d1a4db717acb0107f20b2c83a"
+    },
+    {
+      "path": "baseline-v2.0/references/sources.md",
+      "sha256": "ffd1e7ad16420d8922aed052e5dcb8d7774480a2b028f6443233a9c2696cb4ad"
+    },
+    {
+      "path": "baseline-v2.0/scripts/check_evidence.py",
+      "sha256": "031d30d35250ef88767a28c231893c1ac69d29c197cc343d412afb7220376027"
+    },
+    {
+      "path": "baseline-v2.0/scripts/run_tests.py",
+      "sha256": "0ba6c8517f1b40a4f0b0bb6df15f7f869380d8587974eb65ae43c74d9ab70f2e"
+    },
+    {
+      "path": "baseline-v2.0/SKILL.md",
+      "sha256": "ba4f0bbb7a0ba07a7e1224c4a6b85990df4df4b4e729b715c74db369f59c9300"
+    },
+    {
+      "path": "docs/evaluation-plan.md",
+      "sha256": "bfd3885f6071207725e1e08efec6e74771ec18c4c6535c607fd43b77c49ea5bf"
+    },
+    {
+      "path": "docs/evaluation.en.md",
+      "sha256": "34199d01516b46ada21aaeda28c44c66afad8141455b17f45f28aa0c9c16d767"
+    },
+    {
+      "path": "docs/problems.md",
+      "sha256": "1702c83807c9a1351c13f84efad43c4c9b84717a7bfcda2eaef82e3380632516"
+    },
+    {
+      "path": "docs/usage.md",
+      "sha256": "5cc2344d285708cec8deaa0d67024a4220e359e83a6894576d79139ba292f299"
+    },
+    {
+      "path": "docs/v2.0-historical-report.md",
+      "sha256": "37a35382917bc302f7b05a1ef024f3183c827077a314d78e5ac38b278146bc50"
+    },
+    {
+      "path": "docs/v2.1.0-report.en.md",
+      "sha256": "64ceeff8d2cd19b2c82444e603aa2ecffdcaec5c90c690584612ec11f5e926d0"
+    },
+    {
+      "path": "docs/v2.1.0-report.md",
+      "sha256": "f6f715771c6ed9485e0b4f826165a355c1d8344a4a1beef5ba3ca740662d005b"
+    },
+    {
+      "path": "package.py",
+      "sha256": "344a3c6783d182137098ed36b4c69d6e1f56bcf01ae0e64ecddd105632af68cf"
+    },
+    {
+      "path": "plugin/assets/icon.svg",
+      "sha256": "4009f4f6b5c6cc5dc77ee11756c7266497405891b8ff5e543fdcf8bf9f6afdb1"
+    },
+    {
+      "path": "plugin/plugin.json",
+      "sha256": "f55d17ef24a98f08e40f1179aead6f8047678441420749a1415db1fbbe0b39d7"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/agents/openai.yaml",
+      "sha256": "e0046d4170589038c6a46e4d552a4960f09e18959c3408b5bf34babd2d1115d1"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/references/eval-cases.json",
+      "sha256": "1be638fb2d0a75ad9d70e62e8413c887b9a931acc3bd783324a9e5cabbc06353"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/references/evaluation.md",
+      "sha256": "6378935468633f6d42141f8851b29272681ec0d555f0c421f4feedfdf1eae2d3"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/references/evidence.md",
+      "sha256": "af6da63dcdcf1387f1a8c9f6816229c552a9a42b456666ff59ea8e68c98eb20a"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/references/live-cases.json",
+      "sha256": "924412a99c4cc6f47f412354c23ca6d232291a48c758d2b27c010647e58bcfd1"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/references/sources.md",
+      "sha256": "44bdc25bea03d63f2d4fa2c477c2c86798369c1afc35b09a8c8455974fde52b3"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/scripts/check_evidence.py",
+      "sha256": "b820bae7ace612c56b2afa4b91625d5e883de4d6e2a534f2196a8e9c6a8c90e5"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/scripts/evaluate.py",
+      "sha256": "44fbe6b04e205595ba150dcae9c735f98c1c6494a442eab0b60ca2329d5e8e7f"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/scripts/run_tests.py",
+      "sha256": "dc38e22fe52c442135195cf5d84274245c9dbd1792a2f7a6d2e2c54ceef5415c"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/scripts/test_upgrade.py",
+      "sha256": "78603f15a4daeb7cae12a2165b15b1ac0162172f6b634f655d7887000e35ea50"
+    },
+    {
+      "path": "plugin/skills/freshness-guard/SKILL.md",
+      "sha256": "8a4e37480df55c4d0acce9b14be607ba1fa9540acf61adb2cfbb05cc4ab0cbb2"
+    },
+    {
+      "path": "README.en.md",
+      "sha256": "51e791c83bc0fc94a2c7e862efae4495cadc879618b67ba68ea8a1eeab8e7826"
+    },
+    {
+      "path": "README.md",
+      "sha256": "838764758b58e2f4518cbcd7b7e2d2975e381f2da1f670ae15f6d4f0bed4522e"
+    },
+    {
+      "path": "recorded/2026-10-19/forward-contract-results.json",
+      "sha256": "6b85ea5f4b561ba37592d53e41c7d22f16bf7874c9606d1a2e9a355dda82375c"
+    },
+    {
+      "path": "recorded/2026-10-19/forward-live.json",
+      "sha256": "77fdfc630a398cd2ffbd610c33433ab107968ea315a7728c689a49982a3f52df"
+    },
+    {
+      "path": "recorded/2026-10-19/forward-live.md",
+      "sha256": "8ff7cb25b7c1e5d2d78afa25b94a84057b149daf6337834d16f61ac7fdaf8cbc"
+    },
+    {
+      "path": "recorded/2026-10-19/implicit-trial.md",
+      "sha256": "444a6682c0c22b4af774ec316da33a55f513987fc268c6466d417a987a333d95"
+    },
+    {
+      "path": "recorded/2026-10-19/live-contract-results-before-fix.json",
+      "sha256": "d52782bfe3df05e092eaf896b820041110b71a6c2ad8208398d1a0511cee0d8e"
+    },
+    {
+      "path": "recorded/2026-10-19/live-contract-results.json",
+      "sha256": "41f86a059634f44c41ea8a2466a1dbb8952f356f360b03bf255cacf716054cd2"
+    },
+    {
+      "path": "recorded/2026-10-19/live-evidence.json",
+      "sha256": "d5e024eff42e799edcce2419432b61079c07f88bcea7da5c35f42b5aa5564c25"
+    },
+    {
+      "path": "recorded/2026-10-19/offline-results.json",
+      "sha256": "657500c0752ccede8296b2e08d3ff1dd96e89beda1655594a8d5b95dc721904e"
+    },
+    {
+      "path": "recorded/2026-10-20/forward-live-contract-rerun.json",
+      "sha256": "6b85ea5f4b561ba37592d53e41c7d22f16bf7874c9606d1a2e9a355dda82375c"
+    },
+    {
+      "path": "recorded/2026-10-20/live-evidence-contract-rerun.json",
+      "sha256": "41f86a059634f44c41ea8a2466a1dbb8952f356f360b03bf255cacf716054cd2"
+    },
+    {
+      "path": "recorded/2026-10-20/offline-results-v2.0-rerun.json",
+      "sha256": "657500c0752ccede8296b2e08d3ff1dd96e89beda1655594a8d5b95dc721904e"
+    },
+    {
+      "path": "recorded/2026-10-20/offline-results-v2.0.1.json",
+      "sha256": "84566124f9945f9bc9a0126eef1d47ab9dfc1e2ab1e3be41c8d18d97523db983"
+    },
+    {
+      "path": "recorded/2026-10-20/plugin-save-verification.json",
+      "sha256": "fea36fa6ee9fb52ef4418762170a3f8e8f17723534ea0989e2e2de25f7e6f522"
+    },
+    {
+      "path": "recorded/2026-10-22/chat-evaluation-pending/manifest.json",
+      "sha256": "bb85d2f1ce788b6e8ccbc52a1ce177fc7c8b8ef3f2a1fd323f1aa83175f81851"
+    },
+    {
+      "path": "recorded/2026-10-22/chat-evaluation-pending/report.json",
+      "sha256": "b982e7bb781493e1dc9057f931015797f29b85b8cc7d38079bd454e9f4acda0d"
+    },
+    {
+      "path": "recorded/2026-10-22/chat-evaluation-pending/scores.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "recorded/2026-10-22/check_evidence.py.log",
+      "sha256": "41f86a059634f44c41ea8a2466a1dbb8952f356f360b03bf255cacf716054cd2"
+    },
+    {
+      "path": "recorded/2026-10-22/offline-results.json",
+      "sha256": "84566124f9945f9bc9a0126eef1d47ab9dfc1e2ab1e3be41c8d18d97523db983"
+    },
+    {
+      "path": "recorded/2026-10-22/save-verification.json",
+      "sha256": "f24452b7866f23c5489d19f56c1e6bcfab5e14d781371a98bf5b4beff72d5e48"
+    },
+    {
+      "path": "recorded/2026-10-22/test_upgrade.py.log",
+      "sha256": "9e0f2643e6fa33e15951e6af6c9354a510b3d44c00206f91e8173c88fe11f0fa"
+    }
+  ]
 }

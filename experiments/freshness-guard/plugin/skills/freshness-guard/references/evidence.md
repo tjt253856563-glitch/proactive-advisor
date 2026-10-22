@@ -13,3 +13,5 @@ kind 为 release / entitlement / leadership / other；status 为 verified / corr
 `as_of` 是检查截止，不是知识保证有效期。跨轮复用旧证据时先检查断言波动程度及有无新线索，权限和高管的“现在”问题应当轮重新读取当前官方页；历史发布可复用带日期的原文。不设虚假的统一 24 小时有效期。
 
 运行 `check_evidence.py` 只检查结构与已声明的证据门槛，无法检测伪造的日志或语义错配。保存检索工具轨迹供人工/独立代理复核，不将同一模型的自评作为独立准确率。
+
+v2.1.0补充：limitation/date_note须为字符串，要求解释时不能仅有空白。locator/origin须为非空文本；origin按去空白和大小写折叠去重，但仍不能自动证明采编独立。absence_claim/account_observed只接受布尔值，checked_channels在absence_claim=true时须为非空字符串数组。event_phase如提供，须为announced/planned/effective。发布日期、修订日与抓取日不得晚于retrieval_at；只含日期时按检索时间所声明时区的日历日期比较，不编造时分。未来event_at允许作为预告，不能标为已生效。所有这些仍是离线结构门槛。

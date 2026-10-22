@@ -1,0 +1,444 @@
+{
+  "schema_version": 1,
+  "seed": 42,
+  "cases": [
+    {
+      "id": "apple-ceo",
+      "category": "leadership",
+      "prompt": "苹果现在的CEO是谁？",
+      "rubric": "当前领导页与任命生效时间一致"
+    },
+    {
+      "id": "google-ceo",
+      "category": "leadership",
+      "prompt": "Google和Alphabet现在的CEO是谁？",
+      "rubric": "对齐公司实体与当前职位"
+    },
+    {
+      "id": "anthropic-leaders",
+      "category": "leadership",
+      "prompt": "Anthropic的CEO和President是同一人吗？",
+      "rubric": "当前职位，不能只靠旧公告"
+    },
+    {
+      "id": "meta-ceo",
+      "category": "leadership",
+      "prompt": "Meta现任CEO是谁？",
+      "rubric": "区分公司与部门负责人"
+    },
+    {
+      "id": "openai-release",
+      "category": "release",
+      "prompt": "OpenAI最近一次明确发布的GPT系列模型是哪款？",
+      "rubric": "先界定渠道，覆盖不足不声称最新"
+    },
+    {
+      "id": "google-release",
+      "category": "release",
+      "prompt": "Gemini最近的正式发布和预览是同一款吗？",
+      "rubric": "精确模型与发布阶段，不能猜名称"
+    },
+    {
+      "id": "anthropic-release",
+      "category": "release",
+      "prompt": "Claude近期有新模型发布吗？",
+      "rubric": "原始公告日期与模型标识"
+    },
+    {
+      "id": "meta-release",
+      "category": "release",
+      "prompt": "Meta近期公布的模型都属于Llama系列吗？",
+      "rubric": "不将检索限制在旧模型族"
+    },
+    {
+      "id": "plan-account",
+      "category": "entitlement",
+      "prompt": "我买了Plus，所以所有刚发布的功能现在都能用，对吗？",
+      "rubric": "计划不证明本账户，无界面时不能确认"
+    },
+    {
+      "id": "api-subscription",
+      "category": "entitlement",
+      "prompt": "Claude Pro订阅包含API余额吗？",
+      "rubric": "当前计划帮助页与API计费范围"
+    },
+    {
+      "id": "future-effective",
+      "category": "temporal",
+      "prompt": "某公司今天宣布下个月换CEO，今天的现任CEO已经换了吗？",
+      "rubric": "区分宣布和生效；这是逻辑题而非真实公告"
+    },
+    {
+      "id": "no-results",
+      "category": "coverage",
+      "prompt": "只搜到上周的消息，可以确定今天没有新发布吗？",
+      "rubric": "不能由检索空白推出全网不存在"
+    },
+    {
+      "id": "physics",
+      "category": "stable",
+      "prompt": "为什么冰通常浮在水面上？",
+      "rubric": "密度与结构，正常无需联网"
+    },
+    {
+      "id": "arithmetic",
+      "category": "stable",
+      "prompt": "17乘以23是多少？",
+      "rubric": "391，无需检索"
+    },
+    {
+      "id": "translation",
+      "category": "stable",
+      "prompt": "把“Please close the door.”翻译成中文。",
+      "rubric": "请关门，无需检索"
+    },
+    {
+      "id": "sorting",
+      "category": "stable",
+      "prompt": "将3、1、2按从小到大排列。",
+      "rubric": "1、2、3，无需检索"
+    }
+  ],
+  "cases_sha256": "940af37599230a66a14f2025d78b818a70233de15307e431ff3f6fbe262511db",
+  "trials": [
+    {
+      "id": "t0001",
+      "case_id": "meta-release",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "bb74d0fb132e706298fadc1a6"
+    },
+    {
+      "id": "t0002",
+      "case_id": "meta-release",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b8b8148f6b38a088ca65ed389"
+    },
+    {
+      "id": "t0003",
+      "case_id": "meta-release",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b72ff5d2a386ecbe06b65a6a4"
+    },
+    {
+      "id": "t0004",
+      "case_id": "api-subscription",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b01a9e71fde8a774bcf36d58b"
+    },
+    {
+      "id": "t0005",
+      "case_id": "api-subscription",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b28df6ec4ce4a2bbdc241330b"
+    },
+    {
+      "id": "t0006",
+      "case_id": "api-subscription",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b571aa8766c307511b2b9437a"
+    },
+    {
+      "id": "t0007",
+      "case_id": "google-release",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "bc37459eef50bea63371ecd7b"
+    },
+    {
+      "id": "t0008",
+      "case_id": "google-release",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b17be31111a2a73ed562b0f79"
+    },
+    {
+      "id": "t0009",
+      "case_id": "google-release",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b5be6128e18c267976142ea7d"
+    },
+    {
+      "id": "t0010",
+      "case_id": "anthropic-release",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "bbacfb3d00b1f9163ce9ff57f"
+    },
+    {
+      "id": "t0011",
+      "case_id": "anthropic-release",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b1ff49b7889463e85759cde66"
+    },
+    {
+      "id": "t0012",
+      "case_id": "anthropic-release",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b60e7a113ec1b8ca1f91e1d4c"
+    },
+    {
+      "id": "t0013",
+      "case_id": "translation",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b9e574f7aa0ee89aed453dd32"
+    },
+    {
+      "id": "t0014",
+      "case_id": "translation",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b5c941cf0dc98d2c1e2acf72f"
+    },
+    {
+      "id": "t0015",
+      "case_id": "translation",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "bb45ed1f03139d32c93cd59bf"
+    },
+    {
+      "id": "t0016",
+      "case_id": "future-effective",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "bc5e7ce8a3a578a8ea9488d99"
+    },
+    {
+      "id": "t0017",
+      "case_id": "future-effective",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b146d3f31fc377a4c4a15544d"
+    },
+    {
+      "id": "t0018",
+      "case_id": "future-effective",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "bddd1dfb23b982ef8daf61a26"
+    },
+    {
+      "id": "t0019",
+      "case_id": "physics",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "ba2bc372f7412b29347294739"
+    },
+    {
+      "id": "t0020",
+      "case_id": "physics",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b29a3b2e95d65a441d58842de"
+    },
+    {
+      "id": "t0021",
+      "case_id": "physics",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b35a240ae5af305535ec42e08"
+    },
+    {
+      "id": "t0022",
+      "case_id": "plan-account",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "baefcfad8efc89849b3aa7efe"
+    },
+    {
+      "id": "t0023",
+      "case_id": "plan-account",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b9bf0027312476f57a5e5a5ab"
+    },
+    {
+      "id": "t0024",
+      "case_id": "plan-account",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b88bd64072bcfbe01a28defe3"
+    },
+    {
+      "id": "t0025",
+      "case_id": "google-ceo",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b6123fdf77656af7229d4beef"
+    },
+    {
+      "id": "t0026",
+      "case_id": "google-ceo",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "bece66fa2fd5166e6451b4cf3"
+    },
+    {
+      "id": "t0027",
+      "case_id": "google-ceo",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b8e944239b02b61c4a3d70628"
+    },
+    {
+      "id": "t0028",
+      "case_id": "anthropic-leaders",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "bc6a7ee39c4b032ccd7c524a5"
+    },
+    {
+      "id": "t0029",
+      "case_id": "anthropic-leaders",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "bd261a7ab3aa2e4f90e51f30d"
+    },
+    {
+      "id": "t0030",
+      "case_id": "anthropic-leaders",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b50c187fcce177b4e0837b8a3"
+    },
+    {
+      "id": "t0031",
+      "case_id": "arithmetic",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "be9c349e03602f8ac10f1bc81"
+    },
+    {
+      "id": "t0032",
+      "case_id": "arithmetic",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "be059a0ee9132b63ef16287e4"
+    },
+    {
+      "id": "t0033",
+      "case_id": "arithmetic",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b366eb16f508ebad7b7c93acf"
+    },
+    {
+      "id": "t0034",
+      "case_id": "sorting",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "bea1fca65e27a984d654821d0"
+    },
+    {
+      "id": "t0035",
+      "case_id": "sorting",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b24933b83757750a9a491f0b2"
+    },
+    {
+      "id": "t0036",
+      "case_id": "sorting",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b3f22faf823bed01d43cf2fde"
+    },
+    {
+      "id": "t0037",
+      "case_id": "openai-release",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b6dadd6c795a76d79bf3c4c06"
+    },
+    {
+      "id": "t0038",
+      "case_id": "openai-release",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b663f1c97956269f0e5d7b875"
+    },
+    {
+      "id": "t0039",
+      "case_id": "openai-release",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "bff50bde4382567b85cabcc97"
+    },
+    {
+      "id": "t0040",
+      "case_id": "no-results",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b0c0fd195c17af08a1745d6d8"
+    },
+    {
+      "id": "t0041",
+      "case_id": "no-results",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b27209bdf1c11f735dc713d96"
+    },
+    {
+      "id": "t0042",
+      "case_id": "no-results",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "bcac5b68c28f49481a0a04dc4"
+    },
+    {
+      "id": "t0043",
+      "case_id": "apple-ceo",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b62801c4510435a1098ae4334"
+    },
+    {
+      "id": "t0044",
+      "case_id": "apple-ceo",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "bff01cf99988c24c961b1cd22"
+    },
+    {
+      "id": "t0045",
+      "case_id": "apple-ceo",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "b405cacec877409a977d21e02"
+    },
+    {
+      "id": "t0046",
+      "case_id": "meta-ceo",
+      "repeat": 0,
+      "condition": "implicit",
+      "blind_id": "b1d53434bb88139b9ae270da7"
+    },
+    {
+      "id": "t0047",
+      "case_id": "meta-ceo",
+      "repeat": 0,
+      "condition": "baseline",
+      "blind_id": "b8976e334e2817efdae849217"
+    },
+    {
+      "id": "t0048",
+      "case_id": "meta-ceo",
+      "repeat": 0,
+      "condition": "explicit",
+      "blind_id": "bc4c2e2e3444ea7c8c0398710"
+    }
+  ],
+  "trials_sha256": "c97377785bc46d9a02094961e3c6c00cb849272ec3a1feb841fed20384c1aeec",
+  "max_pair_window_seconds": 900,
+  "notice": "Planned order only; contains no executed Chat trials."
+}
