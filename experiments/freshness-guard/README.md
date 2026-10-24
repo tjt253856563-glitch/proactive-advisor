@@ -47,6 +47,8 @@ python experiments/freshness-guard/plugin/skills/freshness-guard/scripts/evaluat
 
 该命令只生成计划，不调用模型。按协议采集真实会话和独立评分后再分析；不把缺失、故障或未评分样本改成通过。普通Chat效果验证仍是下一步工作。
 
+2026-10-24：新增[首轮9试次采集手册](docs/chat-pilot-runbook.md)与[本地采集脚本](tools/chat_pilot.py)，复用原48清单，支持普通Chat网页/手机人工采集、发送前金标准冻结、失败留痕和独立评分模板。见[本轮交付与验收](docs/chat-pilot-delivery.md)。当前真实输出仍为0；结构测试通过不等于效果证明。
+
 ## 历史成果与局限
 
 2026-10-19保存了16条联网断言记录（14条有限范围verified、2条unknown），另有4问的显式调用试验及一次未点名调用观察。这些来自当时的Work/代理环境，样本少且不具备普通Chat独立随机对照条件，不能汇总为准确率提升或长期自动触发率。历史日期和答案不代表今天的真值。原始CEO错误回答没有完整恢复，事故是用户报告，不冒称已复现。
