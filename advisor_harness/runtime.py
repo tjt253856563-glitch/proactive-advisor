@@ -15,6 +15,10 @@ from .providers import REVIEW_TAGS, RULES, make_prompt
 from .store import json_text, workspace_lock
 
 
+class StaleEdit(Invalid):
+    """A proposal could be corrected by rereading already authorized source."""
+
+
 def text_field(data, field, limit=2000, default=None):
     value = data.get(field, default)
     if not isinstance(value, str) or len(value) > limit:
@@ -454,7 +458,7 @@ class Session:
                 self.store.event(self.goal, task_id, "action_rejected", {
                     "action": verb, "reason": str(exc),
                 })
-            if isinstance(exc, Invalid) and verb == "edit":
+            if isinstance(exc, StaleEdit) and verb == "edit":
                 previous_failure = history and history[-1]["kind"] == "work_feedback"
                 if not previous_failure:
                     with self.store.conn:
@@ -535,7 +539,7 @@ class Session:
         elif isinstance(old, str) and old and previous is not None and previous.count(old) == 1:
             after = previous.replace(old, new, 1).encode()
         else:
-            raise Invalid("The edit does not match exactly one current source fragment")
+            raise StaleEdit("The edit does not match exactly one current source fragment")
         if after == before or len(after) > MAX_FILE:
             raise Invalid("Edit must change the file and remain within the size limit")
         if contains_secret(after):
