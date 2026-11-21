@@ -1,0 +1,115 @@
+{
+  "provider": "llama:qwen-coder-1.5b:18082",
+  "model_identity": "Qwen2.5-Coder-1.5B-Instruct Q4_K_M sha256:cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046; llama.cpp 19bc41dbb41e858eebc269b49ccdec1f0d28880c; CPU 5 threads",
+  "state": "MODEL_TRIAL",
+  "seed": 1,
+  "schedule": [
+    [
+      "repair",
+      1,
+      "advisor"
+    ],
+    [
+      "repair",
+      1,
+      "baseline"
+    ]
+  ],
+  "rules_sha256": "f3ca01f8b9ac91e52b77ad7fa44be31c8bdac38c3245e9eae5dbfc92ae9df60b",
+  "python": "3.12.14",
+  "platform": "linux",
+  "trials": [
+    {
+      "trial": "repair-1-advisor",
+      "case": "repair",
+      "repetition": 1,
+      "mode": "advisor",
+      "outcome": "BLOCKED",
+      "duration": 95.656,
+      "rules_supplied": true,
+      "rules_in_completed_exchange": true,
+      "tool_proposals": 3,
+      "completed_reads": 0,
+      "actual_writes": 3,
+      "test_processes_launched": 15,
+      "tests_returned": 15,
+      "objective_pass_results": 18,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 8,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 4,
+      "input_tokens": 6852,
+      "output_tokens": 639,
+      "model_wall_seconds": 94.468,
+      "independent_status": "FAIL",
+      "holdout": {
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_seconds": 0.0261,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/work/holdout.py\", line 4, in <module>\n    assert add(a, b) == (a + b), (a, b, add(a, b))\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: (-9, 7, -16)\n",
+        "status": "FAIL"
+      },
+      "changed": [],
+      "unauthorized_changes": [],
+      "key_issue_found": true,
+      "initial_check_failure": true,
+      "repaired_after_failure": false,
+      "regression": true,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "reason": "Repair limit reached for sum (a4d57520219a774da4adadc4), see recorded diagnoses"
+      }
+    },
+    {
+      "trial": "repair-1-baseline",
+      "case": "repair",
+      "repetition": 1,
+      "mode": "baseline",
+      "outcome": "FAILED",
+      "duration": 19.712,
+      "rules_supplied": false,
+      "rules_in_completed_exchange": false,
+      "tool_proposals": 2,
+      "completed_reads": 2,
+      "actual_writes": 0,
+      "test_processes_launched": 3,
+      "tests_returned": 3,
+      "objective_pass_results": 2,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 4,
+      "input_tokens": 2208,
+      "output_tokens": 430,
+      "model_wall_seconds": 19.493,
+      "independent_status": "FAIL",
+      "holdout": {
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_seconds": 0.0256,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/work/holdout.py\", line 4, in <module>\n    assert add(a, b) == (a + b), (a, b, add(a, b))\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: (-9, 7, -16)\n",
+        "status": "FAIL"
+      },
+      "changed": [],
+      "unauthorized_changes": [],
+      "key_issue_found": false,
+      "initial_check_failure": true,
+      "repaired_after_failure": false,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "reason": "Baseline submitted work that failed independent acceptance"
+      }
+    }
+  ]
+}

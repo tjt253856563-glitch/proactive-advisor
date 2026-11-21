@@ -550,10 +550,17 @@ class Session:
         if contains_secret(after):
             raise Blocked("Model edit contains credential-like content")
         conn = self.store.conn
+        old_hash, new_hash = digest(before), digest(after)
+        if repair and conn.execute(
+            "SELECT 1 FROM writes WHERE goal=? AND task=? AND path=? AND old_hash IS ? AND new_hash=? "
+            "AND repair IS NOT NULL AND status IN ('APPLIED','UNDONE')",
+            (self.goal, task_id, name, old_hash, new_hash),
+        ).fetchone():
+            raise Invalid("This exact repair was already tested against the same source")
         with conn:
             write_id = conn.execute(
                 "INSERT INTO writes(goal,task,path,old_hash,new_hash,previous,status,repair) VALUES (?,?,?,?,?,?,'PREPARED',?)",
-                (self.goal, task_id, name, digest(before), digest(after), before if repair else None, repair),
+                (self.goal, task_id, name, old_hash, new_hash, before if repair else None, repair),
             ).lastrowid
         self.guard()
         if digest(self.policy.read(name)) != digest(before):
@@ -701,15 +708,20 @@ class Session:
                 remaining -= len(sources[name])
         previous_attempts = []
         for row in conn.execute(
-            "SELECT diagnosis,validation,result FROM repairs WHERE goal=? AND task=? ORDER BY id DESC LIMIT 2",
+            "SELECT id,diagnosis,validation,result FROM repairs WHERE goal=? AND task=? ORDER BY id DESC LIMIT 2",
             (self.goal, task_id),
         ):
             validation = next((e["data"]["checks"] for e in events if e["id"] == row["validation"]), [])
             regressions = [compact_result(e["data"]) for e in events if any(
                 item["event"] == e["id"] and item["status"] == "FAIL" for item in validation
             )]
+            rejection = next(
+                (e["data"]["reason"] for e in events
+                 if e["kind"] == "repair_rejected" and e["data"]["repair"] == row["id"]), None,
+            )
             previous_attempts.append({
-                "diagnosis": json.loads(row["diagnosis"]), "result": row["result"], "failed_checks": regressions,
+                "diagnosis": json.loads(row["diagnosis"]), "result": row["result"],
+                "failed_checks": regressions, "rejection": rejection,
             })
         action = self.decide("repair", {
             "policy": self.policy.model_context(), "task": task["spec"], "constraints": plan["constraints"],

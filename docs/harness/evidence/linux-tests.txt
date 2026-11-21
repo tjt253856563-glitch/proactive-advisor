@@ -1,5 +1,6 @@
 test_a_read_and_diagnose_from_real_failing_process (test_harness.HarnessTests.test_a_read_and_diagnose_from_real_failing_process) ... ok
 test_advisor_finishes_after_actual_edit_passes_all_configured_acceptance (test_harness.HarnessTests.test_advisor_finishes_after_actual_edit_passes_all_configured_acceptance) ... ok
+test_already_rolled_back_repair_is_not_written_again (test_harness.HarnessTests.test_already_rolled_back_repair_is_not_written_again) ... ok
 test_b_edit_actual_file_and_preserve_other_source (test_harness.HarnessTests.test_b_edit_actual_file_and_preserve_other_source) ... ok
 test_c_command_and_independent_status_override_model_summary (test_harness.HarnessTests.test_c_command_and_independent_status_override_model_summary) ... ok
 test_command_timeout_and_manual_review_do_not_pass (test_harness.HarnessTests.test_command_timeout_and_manual_review_do_not_pass) ... ok
@@ -55,6 +56,6 @@ test_traversal_and_absolute_fixture_paths_rejected (test_project.ProjectTests.te
 test_untouched_files_fail_change_but_pass_preserve (test_project.ProjectTests.test_untouched_files_fail_change_but_pass_preserve) ... ok
 
 ----------------------------------------------------------------------
-Ran 43 tests in 8.309s
+Ran 44 tests in 8.020s
 
 OK (skipped=1)

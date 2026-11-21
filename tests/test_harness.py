@@ -548,3 +548,18 @@ with Store(sys.argv[1]) as store:
         self.assertEqual(report["status"], "COMPLETED")
         self.assertEqual([r["result"] for r in report["repairs"]], ["REGRESSION", "VERIFIED"])
         self.assertIn(b'return "old"', self.source.read_bytes())
+
+    def test_already_rolled_back_repair_is_not_written_again(self):
+        original = self.original.decode()
+        change = {
+            "action": "edit", "path": "calculator.py", "old": original,
+            "new": original.replace("a - b", "a + b").replace('"old"', '"broken"'),
+            "root_cause": "add subtracts", "basis": "failed test", "tag": "GAP",
+        }
+        report = self.run_goal("Repair without reapplying the same bad patch", provider=Script([
+            {"action": "finish", "summary": "Run the tests"}, change, change, change,
+        ]))
+        self.assertEqual(report["status"], "BLOCKED")
+        self.assertEqual([r["result"] for r in report["repairs"]], ["REGRESSION", "REJECTED", "REJECTED"])
+        self.assertEqual(len(result_events(report, "write_applied")), 1)
+        self.assertEqual(self.source.read_bytes(), self.original)
