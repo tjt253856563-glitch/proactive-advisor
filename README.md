@@ -89,3 +89,11 @@ python -m unittest discover -s tests -v
 ## License
 
 MIT，见 [LICENSE](LICENSE)。
+
+## Proactive Advisor 2.0 Harness
+
+独立的 Python 运行时承接自然语言目标、模型的结构化决策、受控操作、真实自动验收、失败修复和 SQLite 检查点。原有 v1.2 候选规则与评测仍可单独使用。
+
+- [运行、Windows 安装与卸载](docs/harness/windows.md)
+- [架构、配置与边界](docs/harness/architecture.md)
+- [实际测试、失败修复与 A/B 证据](docs/harness/validation.md)

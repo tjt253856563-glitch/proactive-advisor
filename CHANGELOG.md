@@ -23,3 +23,11 @@
 ## v1.1
 
 加强跨轮目标保持、纠正后实际执行、完成检查与行为评测指导。早期仅加载组通过的案例不足以证明收益。
+
+## 2.0.0 Harness development branch
+
+- Adds a separate standard-library Python goal runtime with controlled workspace operations and independent evaluation.
+- Adds bounded repair, regression rollback, SQLite checkpoints, experience reuse, and a queryable evidence graph.
+- Adds local Ollama and llama.cpp decision interfaces, a read-only Codex CLI adapter, and a deterministic fixture provider.
+- Adds a portable Windows installation and observable paired evaluation. See [validation](docs/harness/validation.md) for the actual platform and provider coverage.
+- The v1.2 candidate skill, its installer, the manual `goal_check.py` ledger, and earlier experiments keep their existing paths and interfaces.

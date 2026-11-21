@@ -39,3 +39,7 @@ Useful feedback includes the redacted task, client/model/settings, both baseline
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Proactive Advisor 2.0 Harness
+
+The separate standard-library runtime turns natural-language goals into bounded work, explicit capabilities, independent checks, repair attempts and recoverable SQLite state. The original candidate skill and historical experiments remain available. See the [quick start for Windows and Linux](docs/harness/windows.md), [architecture and policy](docs/harness/architecture.md), and [recorded validation](docs/harness/validation.md).
