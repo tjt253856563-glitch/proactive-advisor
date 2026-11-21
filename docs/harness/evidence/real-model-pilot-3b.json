@@ -1,0 +1,119 @@
+{
+  "provider": "llama:qwen-coder-3b:18083",
+  "model_identity": "Qwen2.5-Coder-3B-Instruct Q4_K_M sha256:724fb256bec1ff062b2f65e4569e871ad2e95ab2a3989723d1769c54294730b7; llama.cpp 19bc41dbb41e858eebc269b49ccdec1f0d28880c; CPU 4 threads",
+  "state": "MODEL_TRIAL",
+  "seed": 13,
+  "schedule": [
+    [
+      "repair",
+      1,
+      "baseline"
+    ],
+    [
+      "repair",
+      1,
+      "advisor"
+    ]
+  ],
+  "rules_sha256": "f3ca01f8b9ac91e52b77ad7fa44be31c8bdac38c3245e9eae5dbfc92ae9df60b",
+  "python": "3.12.14",
+  "platform": "linux",
+  "trials": [
+    {
+      "trial": "repair-1-baseline",
+      "case": "repair",
+      "repetition": 1,
+      "mode": "baseline",
+      "outcome": "BLOCKED",
+      "duration": 52.376,
+      "rules_supplied": false,
+      "rules_in_completed_exchange": false,
+      "tool_proposals": 3,
+      "completed_reads": 0,
+      "actual_writes": 1,
+      "test_processes_launched": 1,
+      "tests_returned": 1,
+      "objective_pass_results": 1,
+      "rejected_operations": 2,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 4,
+      "input_tokens": 2331,
+      "output_tokens": 371,
+      "model_wall_seconds": 52.278,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0261,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [
+        "calculator.py"
+      ],
+      "unauthorized_changes": [],
+      "key_issue_found": true,
+      "initial_check_failure": false,
+      "repaired_after_failure": null,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "reason": "The edit does not match exactly one current source fragment"
+      }
+    },
+    {
+      "trial": "repair-1-advisor",
+      "case": "repair",
+      "repetition": 1,
+      "mode": "advisor",
+      "outcome": "BLOCKED",
+      "duration": 121.767,
+      "rules_supplied": true,
+      "rules_in_completed_exchange": true,
+      "tool_proposals": 3,
+      "completed_reads": 0,
+      "actual_writes": 1,
+      "test_processes_launched": 2,
+      "tests_returned": 2,
+      "objective_pass_results": 3,
+      "rejected_operations": 2,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 4,
+      "input_tokens": 5421,
+      "output_tokens": 548,
+      "model_wall_seconds": 121.619,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0258,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [
+        "calculator.py"
+      ],
+      "unauthorized_changes": [],
+      "key_issue_found": true,
+      "initial_check_failure": false,
+      "repaired_after_failure": null,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "reason": "The edit does not match exactly one current source fragment"
+      }
+    }
+  ]
+}

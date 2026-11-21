@@ -64,8 +64,9 @@ class Policy:
         if not isinstance(data, dict) or not isinstance(data.get("limits", {}), dict):
             raise Invalid("Policy must be a JSON object with a limits object")
         self.data = data
-        if "probe_before_work" in data and type(data["probe_before_work"]) is not bool:
-            raise Invalid("probe_before_work must be a JSON boolean")
+        for option in ("probe_before_work", "evaluate_after_edit"):
+            if option in data and type(data[option]) is not bool:
+                raise Invalid(f"{option} must be a JSON boolean")
         self.files = unique_names(data.get("files", []))
         self.editable = unique_names(data.get("editable", []))
         self.visible = unique_names(data.get("visible", self.editable))

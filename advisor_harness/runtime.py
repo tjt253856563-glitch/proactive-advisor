@@ -2,6 +2,7 @@
 
 import difflib
 import hashlib
+import json
 import os
 import tempfile
 import time
@@ -392,7 +393,8 @@ class Session:
                 self.rollback(repair)
                 with conn:
                     conn.execute("UPDATE repairs SET result='REGRESSION' WHERE id=?", (repair,))
-                raise Blocked("Repair introduced a regression and was rolled back")
+                    # Run the original checks again against the restored source before proposing another fix.
+                    self.stage(task_id, "evaluate")
             else:
                 if self.evaluate_task(task):
                     return
@@ -469,6 +471,9 @@ class Session:
             raise
         with self.store.conn:
             self.store.event(self.goal, task_id, f"work_{verb}", result)
+            if (verb == "edit" and self.policy.data.get("evaluate_after_edit")
+                    and self.store.goal(self.goal)["mode"] == "advisor"):
+                self.stage(task_id, "evaluate")
 
     def command(self, name, task, spec, purpose):
         conn = self.store.conn
@@ -635,9 +640,6 @@ class Session:
                 if regressed:
                     self.stage(task_id, "rollback", active_repair)
                     return False
-            if probe and not failures:
-                self.stage(task_id, "work")
-                return False
             if not failures:
                 self.store.transition("tasks", self.goal, "VERIFIED", task_id)
                 self.store.transition("tasks", self.goal, "COMPLETED", task_id)
@@ -697,9 +699,21 @@ class Session:
             if data is not None and name in self.policy.editable:
                 sources[name] = data.decode("utf-8")[:min(remaining, 8000)]
                 remaining -= len(sources[name])
+        previous_attempts = []
+        for row in conn.execute(
+            "SELECT diagnosis,validation,result FROM repairs WHERE goal=? AND task=? ORDER BY id DESC LIMIT 2",
+            (self.goal, task_id),
+        ):
+            validation = next((e["data"]["checks"] for e in events if e["id"] == row["validation"]), [])
+            regressions = [compact_result(e["data"]) for e in events if any(
+                item["event"] == e["id"] and item["status"] == "FAIL" for item in validation
+            )]
+            previous_attempts.append({
+                "diagnosis": json.loads(row["diagnosis"]), "result": row["result"], "failed_checks": regressions,
+            })
         action = self.decide("repair", {
             "policy": self.policy.model_context(), "task": task["spec"], "constraints": plan["constraints"],
-            "failure": compact_result(failure), "sources": sources,
+            "failure": compact_result(failure), "sources": sources, "prior_attempts": previous_attempts,
             "experience": [{"id": item["id"], "result": item["result"], "diagnosis": item["diagnosis"],
                             "regression_count": item["regression_count"]}
                            for item in experience[:3]],

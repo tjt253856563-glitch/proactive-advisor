@@ -221,8 +221,9 @@ def make_prompt(phase, data, *, advisor, rules):
         "repair": (
             'Propose one minimal edit: {"action":"edit","path":"...","old":"exact unique source fragment",'
             '"new":"replacement","tag":"GAP","root_cause":"specific hypothesis","basis":"observed evidence",'
-            '"experience":null}. Use a verified experience id only if it fits and has no recorded regression. If diagnosis has no '
-            'justified edit, return {"action":"finish","summary":"reason"}.'
+            '"experience":null}. Use a verified experience id only if it fits and has no recorded regression. '
+            'Use prior_attempts to avoid repeated failures. Change only the smallest exact expression needed. '
+            'Preserve all unrelated behavior. If no justified edit, return {"action":"finish","summary":"reason"}.'
         ),
     }
     prefix = INSTRUCTIONS

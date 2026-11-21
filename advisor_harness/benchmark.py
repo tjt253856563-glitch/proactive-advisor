@@ -43,6 +43,7 @@ def fixture(case, target):
                             "tests-preserved": policy["checks"]["tests-preserved"]}
         policy["checks"]["sum"]["description"] = "Execute the reproducible failing addition test."
     elif case == "rename":
+        policy["evaluate_after_edit"] = True
         policy["checks"] = {
             "rename": {"kind": "contains", "path": "calculator.py", "value": 'return "new"'},
             "tests-preserved": policy["checks"]["tests-preserved"],

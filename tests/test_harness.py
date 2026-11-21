@@ -512,3 +512,39 @@ with Store(sys.argv[1]) as store:
             "tasks": [{"id": "fix", "title": "Fix addition", "checks": ["sum"]}],
         }, Policy(self.project, self.data))
         self.assertEqual(plan["tasks"][0]["checks"], list(self.data["checks"]))
+
+    def test_advisor_finishes_after_actual_edit_passes_all_configured_acceptance(self):
+        data = {**self.data, "evaluate_after_edit": True, "checks": {
+            "rename": {"kind": "contains", "path": "calculator.py", "value": 'return "new"'},
+        }}
+        report = self.run_goal("Rename label after an objective check", data, Script([
+            {"action": "edit", "path": "calculator.py", "old": '"old"', "new": '"new"'},
+            {"action": "block", "summary": "This call should never be necessary"},
+        ]))
+        self.assertEqual(report["status"], "COMPLETED")
+        self.assertEqual(report["calls"], 2)
+        self.assertEqual(result_events(report, "evaluation")[0]["status"], "PASS")
+
+    def test_regression_is_rolled_back_and_retried_with_actual_failure_feedback(self):
+        original = self.original.decode()
+
+        def retry(data):
+            self.assertEqual(data["prior_attempts"][0]["result"], "REGRESSION")
+            failures = data["prior_attempts"][0]["failed_checks"]
+            self.assertTrue(any(check["id"] == "label" and check["exit_code"] == 1 for check in failures))
+            self.assertEqual(data["sources"]["calculator.py"], original)
+            return {
+                "action": "edit", "path": "calculator.py", "old": "return a - b", "new": "return a + b",
+                "root_cause": "add subtracts", "basis": "known failing assertion", "tag": "GAP",
+            }
+
+        first = {
+            "action": "edit", "path": "calculator.py", "old": original,
+            "new": original.replace("a - b", "a + b").replace('"old"', '"broken"'),
+            "root_cause": "add subtracts", "basis": "known failing assertion", "tag": "GAP",
+        }
+        provider = Script([{"action": "finish", "summary": "Run tests"}, first, retry])
+        report = self.run_goal("Repair addition without breaking label", provider=provider)
+        self.assertEqual(report["status"], "COMPLETED")
+        self.assertEqual([r["result"] for r in report["repairs"]], ["REGRESSION", "VERIFIED"])
+        self.assertIn(b'return "old"', self.source.read_bytes())
