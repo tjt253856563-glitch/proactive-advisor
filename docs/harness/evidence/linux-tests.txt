@@ -1,0 +1,61 @@
+test_a_read_and_diagnose_from_real_failing_process (test_harness.HarnessTests.test_a_read_and_diagnose_from_real_failing_process) ... ok
+test_advisor_finishes_after_actual_edit_passes_all_configured_acceptance (test_harness.HarnessTests.test_advisor_finishes_after_actual_edit_passes_all_configured_acceptance) ... ok
+test_already_rolled_back_repair_is_not_written_again (test_harness.HarnessTests.test_already_rolled_back_repair_is_not_written_again) ... ok
+test_b_edit_actual_file_and_preserve_other_source (test_harness.HarnessTests.test_b_edit_actual_file_and_preserve_other_source) ... ok
+test_c_command_and_independent_status_override_model_summary (test_harness.HarnessTests.test_c_command_and_independent_status_override_model_summary) ... ok
+test_command_timeout_and_manual_review_do_not_pass (test_harness.HarnessTests.test_command_timeout_and_manual_review_do_not_pass) ... ok
+test_credential_like_output_is_redacted_before_persistence (test_harness.HarnessTests.test_credential_like_output_is_redacted_before_persistence) ... ok
+test_d_real_failure_repair_and_cross_goal_memory (test_harness.HarnessTests.test_d_real_failure_repair_and_cross_goal_memory) ... ok
+test_dag_executes_dependency_first_and_rechecks_completed_feature (test_harness.HarnessTests.test_dag_executes_dependency_first_and_rechecks_completed_feature) ... ok
+test_direct_answer_uses_no_execution_and_dag_rejects_cycles (test_harness.HarnessTests.test_direct_answer_uses_no_execution_and_dag_rejects_cycles) ... ok
+test_explicit_unknown_command_and_out_of_scope_edit_are_rejected (test_harness.HarnessTests.test_explicit_unknown_command_and_out_of_scope_edit_are_rejected) ... ok
+test_hard_link_and_reserved_secret_paths_are_denied (test_harness.HarnessTests.test_hard_link_and_reserved_secret_paths_are_denied) ... ok
+test_linux_subprocess_cannot_reach_external_files_or_network (test_harness.HarnessTests.test_linux_subprocess_cannot_reach_external_files_or_network) ... ok
+test_ollama_adapter_exercises_real_loopback_http_with_simulated_response (test_harness.HarnessTests.test_ollama_adapter_exercises_real_loopback_http_with_simulated_response) ... ok
+test_operator_probe_runs_real_check_before_automated_repair (test_harness.HarnessTests.test_operator_probe_runs_real_check_before_automated_repair) ... ok
+test_operator_required_checks_are_added_when_planner_omits_them (test_harness.HarnessTests.test_operator_required_checks_are_added_when_planner_omits_them) ... ok
+test_pause_an_active_subprocess_and_resume_its_replayable_check (test_harness.HarnessTests.test_pause_an_active_subprocess_and_resume_its_replayable_check) ... ok
+test_pause_during_decision_and_resume (test_harness.HarnessTests.test_pause_during_decision_and_resume) ... ok
+test_portable_install_uninstall_preserves_operator_additions (test_harness.HarnessTests.test_portable_install_uninstall_preserves_operator_additions) ... ok
+test_powershell_bundled_demo (test_harness.HarnessTests.test_powershell_bundled_demo) ... skipped 'Native Windows PowerShell demo'
+test_regression_is_rolled_back_and_retried_with_actual_failure_feedback (test_harness.HarnessTests.test_regression_is_rolled_back_and_retried_with_actual_failure_feedback) ... ok
+test_repair_budget_caps_same_failure_at_three_persisted_attempts (test_harness.HarnessTests.test_repair_budget_caps_same_failure_at_three_persisted_attempts) ... ok
+test_repair_that_breaks_a_passing_test_is_rolled_back (test_harness.HarnessTests.test_repair_that_breaks_a_passing_test_is_rolled_back) ... ok
+test_repeat_command_captures_each_real_exit_and_blocks_at_budget (test_harness.HarnessTests.test_repeat_command_captures_each_real_exit_and_blocks_at_budget) ... ok
+test_resume_after_actual_process_death_during_atomic_write (test_harness.HarnessTests.test_resume_after_actual_process_death_during_atomic_write) ... ok
+test_resume_refuses_an_interrupted_non_replayable_command (test_harness.HarnessTests.test_resume_refuses_an_interrupted_non_replayable_command) ... ok
+test_resume_refuses_external_drift_and_revision_supersedes (test_harness.HarnessTests.test_resume_refuses_external_drift_and_revision_supersedes) ... ok
+test_state_lock_rejects_concurrent_workspace_runs (test_harness.HarnessTests.test_state_lock_rejects_concurrent_workspace_runs) ... ok
+test_trusted_tests_need_opt_in_and_are_not_replayed_by_default (test_harness.HarnessTests.test_trusted_tests_need_opt_in_and_are_not_replayed_by_default) ... ok
+test_added_nested_receipt_is_not_silently_deleted (test_project.ProjectTests.test_added_nested_receipt_is_not_silently_deleted) ... ok
+test_blind_export_and_evidence_required (test_project.ProjectTests.test_blind_export_and_evidence_required) ... example-1-skill COMPLETED
+example-1-baseline COMPLETED
+ok
+test_cli_prepare_and_report_do_not_claim_execution (test_project.ProjectTests.test_cli_prepare_and_report_do_not_claim_execution) ... ok
+test_corpus_has_ten_unique_cases_and_two_holdouts (test_project.ProjectTests.test_corpus_has_ten_unique_cases_and_two_holdouts) ... ok
+test_execution_collects_real_changes_without_behavior_pass (test_project.ProjectTests.test_execution_collects_real_changes_without_behavior_pass) ... example-1-skill COMPLETED
+example-1-baseline COMPLETED
+ok
+test_install_uninstall_roundtrip_and_collision (test_project.ProjectTests.test_install_uninstall_roundtrip_and_collision) ... ok
+test_missing_adapter_records_error (test_project.ProjectTests.test_missing_adapter_records_error) ... example-1-skill ERROR
+example-1-baseline ERROR
+ok
+test_missing_response_and_resume_do_not_become_success (test_project.ProjectTests.test_missing_response_and_resume_do_not_become_success) ... example-1-skill ERROR
+example-1-baseline ERROR
+ok
+test_modified_install_is_preserved (test_project.ProjectTests.test_modified_install_is_preserved) ... ok
+test_pair_fixtures_equal_and_judge_hidden (test_project.ProjectTests.test_pair_fixtures_equal_and_judge_hidden) ... ok
+test_pre_execution_tampering_rejected (test_project.ProjectTests.test_pre_execution_tampering_rejected) ... ok
+test_process_error_preserves_artifacts (test_project.ProjectTests.test_process_error_preserves_artifacts) ... example-1-skill ERROR
+example-1-baseline ERROR
+ok
+test_timeout_is_not_pass (test_project.ProjectTests.test_timeout_is_not_pass) ... example-1-skill TIMEOUT
+example-1-baseline TIMEOUT
+ok
+test_traversal_and_absolute_fixture_paths_rejected (test_project.ProjectTests.test_traversal_and_absolute_fixture_paths_rejected) ... ok
+test_untouched_files_fail_change_but_pass_preserve (test_project.ProjectTests.test_untouched_files_fail_change_but_pass_preserve) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 8.020s
+
+OK (skipped=1)

@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "checks": {},
+  "limits": {
+    "seconds": 120,
+    "model_calls": 2
+  }
+}

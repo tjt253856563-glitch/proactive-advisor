@@ -1,0 +1,619 @@
+{
+  "id": "33f1d618f2c94e6cb96c221aee5f0eb3",
+  "request": "Repair addition and preserve the existing label and test files.",
+  "provider": "mock:demo",
+  "mode": "advisor",
+  "status": "COMPLETED",
+  "control": "run",
+  "initial": {
+    "calculator.py": "40a1df0f3b9d4808e1d64a1134dc93f40b8e15a7fad3058b19380346a1d94e05",
+    "test_calculator.py": "4ebeb7636c97d88bac5d8e436081aa54b0663f361d3353e97066ef2ea1067cd1"
+  },
+  "checkpoint": {
+    "calculator.py": "a022cd60c3fe88eb015a83edcc985917da3cfe29c631521421fd0a674d8f5a89",
+    "test_calculator.py": "4ebeb7636c97d88bac5d8e436081aa54b0663f361d3353e97066ef2ea1067cd1"
+  },
+  "plan": {
+    "answer": "",
+    "constraints": [
+      "Keep files outside the editable scope"
+    ],
+    "goal": "Repair addition and preserve the existing label and test files.",
+    "level": 3,
+    "review": [],
+    "tasks": [
+      {
+        "checks": [
+          "sum",
+          "label",
+          "source-edited",
+          "tests-preserved"
+        ],
+        "depends": [],
+        "id": "work",
+        "priority": 1,
+        "title": "Repair addition and preserve the existing label and test files."
+      }
+    ]
+  },
+  "result": {
+    "answer": "",
+    "task_summaries": [
+      "Fixture work submitted"
+    ]
+  },
+  "supersedes": null,
+  "calls": 4,
+  "commands": 5,
+  "elapsed": 1.140547275543213,
+  "started": null,
+  "heartbeat": null,
+  "created": 1795282031.8977277,
+  "tasks": [
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "id": "work",
+      "status": "COMPLETED",
+      "spec": {
+        "checks": [
+          "sum",
+          "label",
+          "source-edited",
+          "tests-preserved"
+        ],
+        "depends": [],
+        "id": "work",
+        "priority": 1,
+        "title": "Repair addition and preserve the existing label and test files."
+      },
+      "stage": "evaluate",
+      "repair": 1
+    }
+  ],
+  "events": [
+    {
+      "id": 5,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": null,
+      "kind": "command_process",
+      "data": {
+        "id": "label",
+        "start": 4
+      },
+      "created": 1795282031.9268641
+    },
+    {
+      "id": 7,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": null,
+      "kind": "evaluation",
+      "data": {
+        "argv": [
+          "{python}",
+          "-m",
+          "unittest",
+          "test_calculator.CalculatorTest.test_label",
+          "-v"
+        ],
+        "command_event": 4,
+        "duration_seconds": 0.2215,
+        "execution": "isolated",
+        "exit_code": 0,
+        "feature": "label",
+        "id": "label",
+        "kind": "command",
+        "purpose": "baseline",
+        "status": "PASS",
+        "stderr": "test_label (test_calculator.CalculatorTest.test_label) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": "",
+        "timed_out": false,
+        "truncated": []
+      },
+      "created": 1795282032.149945
+    },
+    {
+      "id": 8,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": null,
+      "kind": "regression_baseline",
+      "data": {
+        "passed": [
+          "label"
+        ]
+      },
+      "created": 1795282032.150151
+    },
+    {
+      "id": 11,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "work_read",
+      "data": {
+        "path": "calculator.py",
+        "sha256": "40a1df0f3b9d4808e1d64a1134dc93f40b8e15a7fad3058b19380346a1d94e05",
+        "source": "def add(a, b):\n    return a - b\n\n\ndef label():\n    return \"old\"\n"
+      },
+      "created": 1795282032.1640193
+    },
+    {
+      "id": 16,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "command_process",
+      "data": {
+        "id": "sum",
+        "start": 15
+      },
+      "created": 1795282032.199287
+    },
+    {
+      "id": 18,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "argv": [
+          "{python}",
+          "-m",
+          "unittest",
+          "test_calculator.CalculatorTest.test_add",
+          "-v"
+        ],
+        "command_event": 15,
+        "duration_seconds": 0.203,
+        "execution": "isolated",
+        "exit_code": 1,
+        "feature": "addition",
+        "id": "sum",
+        "kind": "command",
+        "purpose": "acceptance",
+        "status": "FAIL",
+        "stderr": "test_add (test_calculator.CalculatorTest.test_add) ... FAIL\n\n======================================================================\nFAIL: test_add (test_calculator.CalculatorTest.test_add)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/work/test_calculator.py\", line 8, in test_add\n    self.assertEqual(add(3, 1), 4)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\nAssertionError: 2 != 4\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+        "stdout": "",
+        "timed_out": false,
+        "truncated": []
+      },
+      "created": 1795282032.4051054
+    },
+    {
+      "id": 20,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "command_process",
+      "data": {
+        "id": "label",
+        "start": 19
+      },
+      "created": 1795282032.4267592
+    },
+    {
+      "id": 22,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "argv": [
+          "{python}",
+          "-m",
+          "unittest",
+          "test_calculator.CalculatorTest.test_label",
+          "-v"
+        ],
+        "command_event": 19,
+        "duration_seconds": 0.1472,
+        "execution": "isolated",
+        "exit_code": 0,
+        "feature": "label",
+        "id": "label",
+        "kind": "command",
+        "purpose": "acceptance",
+        "status": "PASS",
+        "stderr": "test_label (test_calculator.CalculatorTest.test_label) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": "",
+        "timed_out": false,
+        "truncated": []
+      },
+      "created": 1795282032.576082
+    },
+    {
+      "id": 23,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "actual_sha256": "40a1df0f3b9d4808e1d64a1134dc93f40b8e15a7fad3058b19380346a1d94e05",
+        "before_sha256": "40a1df0f3b9d4808e1d64a1134dc93f40b8e15a7fad3058b19380346a1d94e05",
+        "feature": "addition",
+        "id": "source-edited",
+        "kind": "changed",
+        "path": "calculator.py",
+        "purpose": "acceptance",
+        "status": "FAIL"
+      },
+      "created": 1795282032.5778556
+    },
+    {
+      "id": 24,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "actual_sha256": "4ebeb7636c97d88bac5d8e436081aa54b0663f361d3353e97066ef2ea1067cd1",
+        "before_sha256": "4ebeb7636c97d88bac5d8e436081aa54b0663f361d3353e97066ef2ea1067cd1",
+        "feature": "tests-preserved",
+        "id": "tests-preserved",
+        "kind": "unchanged",
+        "path": "test_calculator.py",
+        "purpose": "acceptance",
+        "status": "PASS"
+      },
+      "created": 1795282032.5836656
+    },
+    {
+      "id": 25,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "acceptance",
+      "data": {
+        "checks": [
+          {
+            "event": 18,
+            "id": "sum",
+            "status": "FAIL"
+          },
+          {
+            "event": 22,
+            "id": "label",
+            "status": "PASS"
+          },
+          {
+            "event": 23,
+            "id": "source-edited",
+            "status": "FAIL"
+          },
+          {
+            "event": 24,
+            "id": "tests-preserved",
+            "status": "PASS"
+          }
+        ],
+        "status": "FAIL"
+      },
+      "created": 1795282032.5856946
+    },
+    {
+      "id": 26,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "experience_lookup",
+      "data": {
+        "matches": [],
+        "signature": "a4d57520219a774da4adadc4"
+      },
+      "created": 1795282032.591363
+    },
+    {
+      "id": 29,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "write_applied",
+      "data": {
+        "after_sha256": "a022cd60c3fe88eb015a83edcc985917da3cfe29c631521421fd0a674d8f5a89",
+        "before_sha256": "40a1df0f3b9d4808e1d64a1134dc93f40b8e15a7fad3058b19380346a1d94e05",
+        "diff": "--- calculator.py\n\n+++ calculator.py\n\n@@ -1,4 +1,4 @@\n\n def add(a, b):\n-    return a - b\n+    return a + b\n \n ",
+        "path": "calculator.py",
+        "write": 1
+      },
+      "created": 1795282032.63174
+    },
+    {
+      "id": 31,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "command_process",
+      "data": {
+        "id": "sum",
+        "start": 30
+      },
+      "created": 1795282032.6421561
+    },
+    {
+      "id": 33,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "argv": [
+          "{python}",
+          "-m",
+          "unittest",
+          "test_calculator.CalculatorTest.test_add",
+          "-v"
+        ],
+        "command_event": 30,
+        "duration_seconds": 0.1586,
+        "execution": "isolated",
+        "exit_code": 0,
+        "feature": "addition",
+        "id": "sum",
+        "kind": "command",
+        "purpose": "repair_verification",
+        "status": "PASS",
+        "stderr": "test_add (test_calculator.CalculatorTest.test_add) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": "",
+        "timed_out": false,
+        "truncated": []
+      },
+      "created": 1795282032.8232696
+    },
+    {
+      "id": 35,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "command_process",
+      "data": {
+        "id": "label",
+        "start": 34
+      },
+      "created": 1795282032.8315768
+    },
+    {
+      "id": 37,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "argv": [
+          "{python}",
+          "-m",
+          "unittest",
+          "test_calculator.CalculatorTest.test_label",
+          "-v"
+        ],
+        "command_event": 34,
+        "duration_seconds": 0.1708,
+        "execution": "isolated",
+        "exit_code": 0,
+        "feature": "label",
+        "id": "label",
+        "kind": "command",
+        "purpose": "repair_verification",
+        "status": "PASS",
+        "stderr": "test_label (test_calculator.CalculatorTest.test_label) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": "",
+        "timed_out": false,
+        "truncated": []
+      },
+      "created": 1795282033.000608
+    },
+    {
+      "id": 38,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "actual_sha256": "a022cd60c3fe88eb015a83edcc985917da3cfe29c631521421fd0a674d8f5a89",
+        "before_sha256": "40a1df0f3b9d4808e1d64a1134dc93f40b8e15a7fad3058b19380346a1d94e05",
+        "feature": "addition",
+        "id": "source-edited",
+        "kind": "changed",
+        "path": "calculator.py",
+        "purpose": "repair_verification",
+        "status": "PASS"
+      },
+      "created": 1795282033.0235
+    },
+    {
+      "id": 39,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "evaluation",
+      "data": {
+        "actual_sha256": "4ebeb7636c97d88bac5d8e436081aa54b0663f361d3353e97066ef2ea1067cd1",
+        "before_sha256": "4ebeb7636c97d88bac5d8e436081aa54b0663f361d3353e97066ef2ea1067cd1",
+        "feature": "tests-preserved",
+        "id": "tests-preserved",
+        "kind": "unchanged",
+        "path": "test_calculator.py",
+        "purpose": "repair_verification",
+        "status": "PASS"
+      },
+      "created": 1795282033.0251832
+    },
+    {
+      "id": 40,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "kind": "acceptance",
+      "data": {
+        "checks": [
+          {
+            "event": 33,
+            "id": "sum",
+            "status": "PASS"
+          },
+          {
+            "event": 37,
+            "id": "label",
+            "status": "PASS"
+          },
+          {
+            "event": 38,
+            "id": "source-edited",
+            "status": "PASS"
+          },
+          {
+            "event": 39,
+            "id": "tests-preserved",
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      },
+      "created": 1795282033.0305815
+    }
+  ],
+  "edges": [
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "goal:33f1d618f2c94e6cb96c221aee5f0eb3",
+      "relation": "contains",
+      "target": "task:work"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "goal:33f1d618f2c94e6cb96c221aee5f0eb3",
+      "relation": "acceptance",
+      "target": "check:label"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:label",
+      "relation": "verifies",
+      "target": "feature:label"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:label",
+      "relation": "result",
+      "target": "event:7"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "task:work",
+      "relation": "acceptance",
+      "target": "check:sum"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:sum",
+      "relation": "verifies",
+      "target": "feature:addition"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:sum",
+      "relation": "result",
+      "target": "event:18"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "task:work",
+      "relation": "acceptance",
+      "target": "check:label"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:label",
+      "relation": "result",
+      "target": "event:22"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "task:work",
+      "relation": "acceptance",
+      "target": "check:source-edited"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:source-edited",
+      "relation": "verifies",
+      "target": "feature:addition"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:source-edited",
+      "relation": "result",
+      "target": "event:23"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "task:work",
+      "relation": "acceptance",
+      "target": "check:tests-preserved"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:tests-preserved",
+      "relation": "verifies",
+      "target": "feature:tests-preserved"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:tests-preserved",
+      "relation": "result",
+      "target": "event:24"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "event:18",
+      "relation": "diagnosed_by",
+      "target": "repair:1"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "repair:1",
+      "relation": "proposes_cause",
+      "target": "cause:a4d57520219a774da4adadc4"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:sum",
+      "relation": "result",
+      "target": "event:33"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:label",
+      "relation": "result",
+      "target": "event:37"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:source-edited",
+      "relation": "result",
+      "target": "event:38"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "check:tests-preserved",
+      "relation": "result",
+      "target": "event:39"
+    },
+    {
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "source": "repair:1",
+      "relation": "validated_by",
+      "target": "event:40"
+    }
+  ],
+  "repairs": [
+    {
+      "id": 1,
+      "goal": "33f1d618f2c94e6cb96c221aee5f0eb3",
+      "task": "work",
+      "signature": "a4d57520219a774da4adadc4",
+      "check_id": "sum",
+      "failure": 18,
+      "diagnosis": {
+        "basis": "AssertionError: 2 != 4, and calculator.py returns a - b",
+        "change": "return a + b",
+        "confidence": "hypothesis",
+        "path": "calculator.py",
+        "root_cause": "add subtracts its second argument",
+        "scope": {
+          "check": "sum",
+          "execution": "isolated",
+          "feature": "addition",
+          "platform": "posix",
+          "python": "3.12.14"
+        },
+        "tag": "GAP"
+      },
+      "validation": 40,
+      "reused": null,
+      "result": "VERIFIED",
+      "feature": "addition"
+    }
+  ]
+}

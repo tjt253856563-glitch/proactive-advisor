@@ -9,3 +9,6 @@ experiments/context-followthrough/evidence/
 experiments/context-followthrough/manifest.json
 experiments/context-followthrough/results.json
 experiments/context-followthrough/ratings.json
+
+# Local harness state and paired run artifacts
+.advisor/

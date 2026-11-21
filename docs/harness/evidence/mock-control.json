@@ -1,0 +1,338 @@
+{
+  "provider": "mock:demo",
+  "model_identity": "fixture-demo",
+  "state": "MOCK_CONTROL",
+  "seed": 13,
+  "schedule": [
+    [
+      "inspect",
+      1,
+      "advisor"
+    ],
+    [
+      "inspect",
+      1,
+      "baseline"
+    ],
+    [
+      "repair",
+      1,
+      "advisor"
+    ],
+    [
+      "repair",
+      1,
+      "baseline"
+    ],
+    [
+      "rename",
+      1,
+      "advisor"
+    ],
+    [
+      "rename",
+      1,
+      "baseline"
+    ]
+  ],
+  "rules_sha256": "f3ca01f8b9ac91e52b77ad7fa44be31c8bdac38c3245e9eae5dbfc92ae9df60b",
+  "python": "3.12.14",
+  "platform": "linux",
+  "trials": [
+    {
+      "trial": "inspect-1-advisor",
+      "case": "inspect",
+      "repetition": 1,
+      "mode": "advisor",
+      "outcome": "COMPLETED",
+      "duration": 0.191,
+      "rules_supplied": true,
+      "rules_in_completed_exchange": true,
+      "tool_proposals": 2,
+      "completed_reads": 1,
+      "actual_writes": 0,
+      "test_processes_launched": 2,
+      "tests_returned": 2,
+      "objective_pass_results": 4,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "model_wall_seconds": 0.0,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0511,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [],
+      "unauthorized_changes": [],
+      "key_issue_found": true,
+      "initial_check_failure": false,
+      "repaired_after_failure": null,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "answer": "",
+        "task_summaries": [
+          "calculator.py implements add as subtraction"
+        ]
+      }
+    },
+    {
+      "trial": "inspect-1-baseline",
+      "case": "inspect",
+      "repetition": 1,
+      "mode": "baseline",
+      "outcome": "COMPLETED",
+      "duration": 0.186,
+      "rules_supplied": false,
+      "rules_in_completed_exchange": false,
+      "tool_proposals": 2,
+      "completed_reads": 1,
+      "actual_writes": 0,
+      "test_processes_launched": 2,
+      "tests_returned": 2,
+      "objective_pass_results": 4,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "model_wall_seconds": 0.0,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0257,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [],
+      "unauthorized_changes": [],
+      "key_issue_found": true,
+      "initial_check_failure": false,
+      "repaired_after_failure": null,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "answer": "",
+        "task_summaries": [
+          "calculator.py implements add as subtraction"
+        ]
+      }
+    },
+    {
+      "trial": "repair-1-advisor",
+      "case": "repair",
+      "repetition": 1,
+      "mode": "advisor",
+      "outcome": "COMPLETED",
+      "duration": 0.356,
+      "rules_supplied": true,
+      "rules_in_completed_exchange": true,
+      "tool_proposals": 1,
+      "completed_reads": 0,
+      "actual_writes": 1,
+      "test_processes_launched": 5,
+      "tests_returned": 5,
+      "objective_pass_results": 7,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 2,
+      "model_responses": 2,
+      "metered_responses": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "model_wall_seconds": 0.0,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0259,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [
+        "calculator.py"
+      ],
+      "unauthorized_changes": [],
+      "key_issue_found": true,
+      "initial_check_failure": true,
+      "repaired_after_failure": true,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "answer": "",
+        "task_summaries": []
+      }
+    },
+    {
+      "trial": "repair-1-baseline",
+      "case": "repair",
+      "repetition": 1,
+      "mode": "baseline",
+      "outcome": "FAILED",
+      "duration": 0.245,
+      "rules_supplied": false,
+      "rules_in_completed_exchange": false,
+      "tool_proposals": 1,
+      "completed_reads": 1,
+      "actual_writes": 0,
+      "test_processes_launched": 3,
+      "tests_returned": 3,
+      "objective_pass_results": 3,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 3,
+      "model_responses": 3,
+      "metered_responses": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "model_wall_seconds": 0.0,
+      "independent_status": "FAIL",
+      "holdout": {
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_seconds": 0.0511,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"/work/holdout.py\", line 4, in <module>\n    assert add(a, b) == (a + b), (a, b, add(a, b))\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: (-9, 7, -16)\n",
+        "status": "FAIL"
+      },
+      "changed": [],
+      "unauthorized_changes": [],
+      "key_issue_found": false,
+      "initial_check_failure": true,
+      "repaired_after_failure": false,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "reason": "Baseline submitted work that failed independent acceptance"
+      }
+    },
+    {
+      "trial": "rename-1-advisor",
+      "case": "rename",
+      "repetition": 1,
+      "mode": "advisor",
+      "outcome": "COMPLETED",
+      "duration": 0.022,
+      "rules_supplied": true,
+      "rules_in_completed_exchange": true,
+      "tool_proposals": 2,
+      "completed_reads": 1,
+      "actual_writes": 1,
+      "test_processes_launched": 0,
+      "tests_returned": 0,
+      "objective_pass_results": 2,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "model_wall_seconds": 0.0,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0259,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [
+        "calculator.py"
+      ],
+      "unauthorized_changes": [],
+      "key_issue_found": null,
+      "initial_check_failure": false,
+      "repaired_after_failure": null,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "answer": "",
+        "task_summaries": [
+          "Fixture work submitted"
+        ]
+      }
+    },
+    {
+      "trial": "rename-1-baseline",
+      "case": "rename",
+      "repetition": 1,
+      "mode": "baseline",
+      "outcome": "COMPLETED",
+      "duration": 0.025,
+      "rules_supplied": false,
+      "rules_in_completed_exchange": false,
+      "tool_proposals": 2,
+      "completed_reads": 1,
+      "actual_writes": 1,
+      "test_processes_launched": 0,
+      "tests_returned": 0,
+      "objective_pass_results": 2,
+      "rejected_operations": 0,
+      "duplicate_same_purpose_commands": 0,
+      "duplicate_reads": 0,
+      "model_attempts": 4,
+      "model_responses": 4,
+      "metered_responses": 0,
+      "input_tokens": null,
+      "output_tokens": null,
+      "model_wall_seconds": 0.0,
+      "independent_status": "PASS",
+      "holdout": {
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0261,
+        "truncated": [],
+        "stdout": "",
+        "stderr": "",
+        "status": "PASS"
+      },
+      "changed": [
+        "calculator.py"
+      ],
+      "unauthorized_changes": [],
+      "key_issue_found": null,
+      "initial_check_failure": false,
+      "repaired_after_failure": null,
+      "regression": false,
+      "false_completion": false,
+      "possible_model_overclaim": false,
+      "detail": {
+        "answer": "",
+        "task_summaries": [
+          "Fixture work submitted"
+        ]
+      }
+    }
+  ]
+}

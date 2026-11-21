@@ -8,6 +8,14 @@
 
 Experimental behavior guidance for AI assistants: preserve the user's goal, complete authorized work, and report evidence accurately. General improvement over the baseline has **not** been established.
 
+## Proactive Advisor 2.0 Harness
+
+独立的 Python 运行时承接自然语言目标、模型的结构化决策、受控操作、真实自动验收、失败修复和 SQLite 检查点。原有 v1.2 候选规则与评测仍可单独使用。
+
+- [运行、Windows 安装与卸载](docs/harness/windows.md)
+- [架构、配置与边界](docs/harness/architecture.md)
+- [实际测试、失败修复与 A/B 证据](docs/harness/validation.md)
+
 ## 它提供什么
 
 - 保持仍有效的用户目标，服从用户改题和范围限制。
@@ -16,7 +24,7 @@ Experimental behavior guidance for AI assistants: preserve the user's goal, comp
 - 筛选能影响决策的建议，简单问题直接回答。
 - 修正文档时限定范围；证据不足时先补对照，不默认继续堆规则。
 
-它是模型可读取的工作约定，不是执行引擎、权限系统或后台服务。`goal_check.py` 只记录人工提供的检查结果，不运行测试，也不验证证据真假。
+此处描述 v1.2 候选 Skill 的模型工作约定。执行、权限和检查点由上面的 2.0 Harness 提供。`goal_check.py` 只记录人工提供的检查结果，不运行测试，也不验证证据真假。
 
 ## 安装和使用
 

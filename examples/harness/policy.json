@@ -1,0 +1,29 @@
+{
+  "files": ["calculator.py", "test_calculator.py"],
+  "editable": ["calculator.py"],
+  "visible": ["calculator.py", "test_calculator.py"],
+  "checks": {
+    "sum": {
+      "kind": "command",
+      "argv": ["{python}", "-m", "unittest", "test_calculator.CalculatorTest.test_add", "-v"],
+      "feature": "addition",
+      "description": "Adding 3 and 1 produces 4; extend diagnosis using the test source."
+    },
+    "label": {
+      "kind": "command",
+      "argv": ["{python}", "-m", "unittest", "test_calculator.CalculatorTest.test_label", "-v"],
+      "feature": "label",
+      "description": "Preserves the existing calculator label",
+      "regression": true
+    },
+    "source-edited": {
+      "kind": "changed",
+      "path": "calculator.py",
+      "feature": "addition"
+    },
+    "tests-preserved": {
+      "kind": "unchanged",
+      "path": "test_calculator.py"
+    }
+  }
+}
