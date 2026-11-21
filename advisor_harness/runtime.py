@@ -58,7 +58,7 @@ def validate_plan(value, policy):
         deps = identifiers(item.get("depends", []))
         if not SAFE_ID.fullmatch(task_id) or type(priority) is not int or not 0 <= priority <= 100:
             raise Invalid("Invalid task id or priority")
-        if not checks or not set(checks) <= policy.checks.keys():
+        if not set(checks) <= policy.checks.keys() or (not checks and len(tasks) != 1):
             raise Invalid("Each task needs configured checks as acceptance criteria")
         normalized.append({
             "id": task_id, "title": text_field(item, "title", 500),
@@ -79,8 +79,11 @@ def validate_plan(value, policy):
         del waiting[next_task["id"]]
 
     covered = {name for task in normalized for name in task["checks"]}
-    if not set(policy.required) <= covered:
-        raise Invalid("Plan omits required acceptance checks")
+    if ordered:
+        missing = [name for name in policy.required if name not in covered]
+        ordered[-1]["checks"].extend(missing)
+        if any(not task["checks"] for task in ordered):
+            raise Invalid("Each task must map to acceptance checks")
     if not ordered and (level > 1 or policy.required):
         raise Invalid("Complex goals need operator-configured acceptance checks")
     if ordered and level < 2:
@@ -285,15 +288,28 @@ class Session:
         with conn:
             self.store.event(self.goal, task, "decision_response", {
                 "request": event, "action": decision.value.get("action"), "input_tokens": decision.input_tokens,
+                "error": decision.error,
                 "output_tokens": decision.output_tokens, "seconds": round(time.monotonic() - started, 4),
             })
         self.guard()
+        if decision.error:
+            raise Invalid(decision.error)
         return decision.value
 
     def make_plan(self):
         conn = self.store.conn
-        raw = self.decide("plan", {"policy": self.policy.model_context()})
-        plan = validate_plan(raw, self.policy)
+        data = {"policy": self.policy.model_context()}
+        for attempt in range(2):
+            try:
+                plan = validate_plan(self.decide("plan", data), self.policy)
+                break
+            except Invalid as exc:
+                with conn:
+                    self.store.event(self.goal, None, "invalid_plan", {"reason": str(exc)})
+                if attempt:
+                    raise
+                data["previous_issue"] = str(exc)
+                data["retry"] = "Keep the schema concise. Use the exact configured check ids."
         with conn:
             conn.execute("UPDATE goals SET plan=? WHERE id=?", (json_text(plan), self.goal))
             for task in plan["tasks"]:
@@ -349,6 +365,12 @@ class Session:
         task_id = task["id"]
         with conn:
             self.store.transition("tasks", self.goal, "RUNNING", task_id)
+        if (self.policy.data.get("probe_before_work")
+                and self.store.goal(self.goal)["mode"] == "advisor" and task["stage"] == "work"
+                and not self.history(task_id)):
+            self.guard()
+            with conn:
+                self.stage(task_id, "probe")
         while True:
             self.guard()
             self.checkpoint()
@@ -356,6 +378,9 @@ class Session:
             stage = task["stage"]
             if stage == "work":
                 self.work(task, plan)
+            elif stage == "probe":
+                if self.evaluate_task(task, probe=True):
+                    return
             elif stage == "repair":
                 self.repair(task, plan)
             elif stage == "rollback":
@@ -369,15 +394,33 @@ class Session:
                     return
 
     def history(self, task):
-        allowed = {"work_read", "work_check", "work_edit"}
+        allowed = {"work_read", "work_check", "work_edit", "work_feedback"}
         return [{"kind": event["kind"], **event["data"]} for event in self.store.events(self.goal)
                 if event["task"] == task and event["kind"] in allowed][-8:]
 
     def work(self, task, plan):
         task_id = task["id"]
+        history = self.history(task_id)
+        sources = {}
+        for path in self.policy.editable[:5]:
+            if path in self.policy.visible:
+                data = self.policy.read(path)
+                if data is not None:
+                    sources[path] = data.decode("utf-8")[:2400]
+        paths_read, checks_run = set(), set()
+        for item in history:
+            if item["kind"] == "work_read":
+                paths_read.add(item["path"])
+            if item["kind"] == "work_check":
+                checks_run.add(item["id"])
+            if item["kind"] == "work_edit":
+                paths_read.discard(item["path"])
+                checks_run.clear()
         action = self.decide("work", {
             "policy": self.policy.model_context(), "task": task["spec"],
-            "constraints": plan["constraints"], "history": self.history(task_id),
+            "constraints": plan["constraints"], "history": history,
+            "editable_sources": sources, "next_reads": sorted(set(self.policy.visible) - paths_read),
+            "next_checks": sorted(set(self.policy.checks) - checks_run),
         }, task_id)
         verb = action.get("action")
         try:
@@ -411,6 +454,14 @@ class Session:
                 self.store.event(self.goal, task_id, "action_rejected", {
                     "action": verb, "reason": str(exc),
                 })
+            if isinstance(exc, Invalid) and verb == "edit":
+                previous_failure = history and history[-1]["kind"] == "work_feedback"
+                if not previous_failure:
+                    with self.store.conn:
+                        self.store.event(self.goal, task_id, "work_feedback", {
+                            "reason": str(exc), "hint": "Use a unique exact fragment from editable_sources.",
+                        })
+                    return
             raise
         with self.store.conn:
             self.store.event(self.goal, task_id, f"work_{verb}", result)
@@ -550,13 +601,14 @@ class Session:
                 protected.update(task["spec"]["checks"])
         return protected
 
-    def evaluate_task(self, task):
+    def evaluate_task(self, task, *, probe=False):
         conn = self.store.conn
         task_id = task["id"]
         protected = self.protected_checks(task_id)
         names = [*task["spec"]["checks"], *self.policy.regressions, *sorted(protected)]
         active_repair = task["repair"]
-        results = self.evaluator.run(names, task_id, purpose="repair_verification" if active_repair else "acceptance")
+        purpose = "initial_diagnosis" if probe else ("repair_verification" if active_repair else "acceptance")
+        results = self.evaluator.run(names, task_id, purpose=purpose)
         failures = [item for item in results if item["status"] != "PASS"]
         self.guard()
         self.checkpoint()
@@ -579,6 +631,9 @@ class Session:
                 if regressed:
                     self.stage(task_id, "rollback", active_repair)
                     return False
+            if probe and not failures:
+                self.stage(task_id, "work")
+                return False
             if not failures:
                 self.store.transition("tasks", self.goal, "VERIFIED", task_id)
                 self.store.transition("tasks", self.goal, "COMPLETED", task_id)

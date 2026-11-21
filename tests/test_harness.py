@@ -496,3 +496,19 @@ with Store(sys.argv[1]) as store:
         output = [json.loads(line) for line in result.stdout.splitlines() if line.startswith("{")]
         self.assertEqual(output[-1]["status"], "COMPLETED")
         self.assertIn(b"return a + b", (run / "project" / "calculator.py").read_bytes())
+
+    def test_operator_probe_runs_real_check_before_automated_repair(self):
+        data = {**self.data, "probe_before_work": True}
+        report = self.run_goal("Repair Python addition", data)
+        self.assertEqual(report["status"], "COMPLETED")
+        self.assertEqual(result_events(report, "work_read"), [])
+        results = [r for r in result_events(report, "evaluation") if r["id"] == "sum"]
+        self.assertEqual([(r["purpose"], r["exit_code"]) for r in results],
+                         [("initial_diagnosis", 1), ("repair_verification", 0)])
+
+    def test_operator_required_checks_are_added_when_planner_omits_them(self):
+        plan = validate_plan({
+            "level": 3, "goal": "fix arithmetic",
+            "tasks": [{"id": "fix", "title": "Fix addition", "checks": ["sum"]}],
+        }, Policy(self.project, self.data))
+        self.assertEqual(plan["tasks"][0]["checks"], list(self.data["checks"]))

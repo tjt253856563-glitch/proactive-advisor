@@ -32,12 +32,11 @@ foreach ($entry in $Policy.checks.PSObject.Properties) {
 }
 [System.IO.File]::WriteAllText($PolicyPath, ($Policy | ConvertTo-Json -Depth 20), (New-Object System.Text.UTF8Encoding($false)))
 
-$Launcher = Get-Command "py.exe" -ErrorAction SilentlyContinue
+$Launcher = Get-Command "python.exe" -ErrorAction SilentlyContinue
 $PythonArguments = @()
-if ($Launcher) {
+if (-not $Launcher) {
+    $Launcher = Get-Command "py.exe" -ErrorAction Stop
     $PythonArguments += "-3"
-} else {
-    $Launcher = Get-Command "python.exe" -ErrorAction Stop
 }
 $PythonArguments += @(
     "-B", "-m", "advisor_harness", "--db", $Db, "start", "--workspace", $Workspace,

@@ -21,7 +21,7 @@ Set-Location $Install
 .\scripts\run-harness-demo.ps1 -TrustBundledTests
 ```
 
-脚本将两个随附的测试文件复制到新目录，确认加法测试失败，通过确定性决策修正加法，重跑加法和标签测试，并打印目标 ID 与证据数据库路径。该开关只用于已审查的本示例。它授权测试在当前 Windows 账号下运行。测试调用会导入被测源码，原生 Windows 运行时没有独立的 OS 沙箱。
+脚本优先使用 PATH 上的 Python。它将两个随附的测试文件复制到新目录，确认加法测试失败，通过确定性决策修正加法，重跑加法和标签测试，并打印目标 ID 与证据数据库路径。该开关只用于已审查的本示例。它授权测试在当前 Windows 账号下运行。测试调用会导入被测源码，原生 Windows 运行时没有独立的 OS 沙箱。
 
 ```powershell
 py -3 -B -m advisor_harness --db "C:\path\to\state.db" status GOAL_ID

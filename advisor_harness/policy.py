@@ -3,7 +3,7 @@
 import hashlib
 import json
 import re
-from pathlib import Path, PurePosixPath, PureWindowsPath
+from pathlib import Path, PurePosixPath
 
 
 class Blocked(Exception):
@@ -23,6 +23,7 @@ class Stopped(Exception):
 MAX_FILE = 128 * 1024
 MAX_FILES = 128
 SAFE_ID = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_.-]{0,63}\Z")
+WINDOWS_DEVICE = re.compile(r"(?:CON|PRN|AUX|NUL|CONIN\$|CONOUT\$|(?:COM|LPT)[1-9¹²³])\Z", re.I)
 SECRET_PATH = re.compile(
     r"(^\.|(?:^|[_.-])(?:env|credentials?|secrets?|tokens?|auth|id_rsa|id_ed25519)"
     r"(?:[_.-]|$)|\.(?:pem|key|pfx|p12|kdbx)$)", re.I
@@ -40,7 +41,8 @@ def safe_name(name):
     for part in parts:
         if (not part or part in (".", "..") or part.endswith((" ", "."))
                 or any(char in part for char in '\\:*?"<>|\x00\n\r')
-                or PureWindowsPath(part).is_reserved() or SECRET_PATH.search(part)):
+                or any(ord(char) < 32 for char in part)
+                or WINDOWS_DEVICE.fullmatch(part.split(".", 1)[0].rstrip(" ")) or SECRET_PATH.search(part)):
             raise Invalid("Path is not permitted by the workspace policy")
     return PurePosixPath(*parts).as_posix()
 
@@ -62,6 +64,8 @@ class Policy:
         if not isinstance(data, dict) or not isinstance(data.get("limits", {}), dict):
             raise Invalid("Policy must be a JSON object with a limits object")
         self.data = data
+        if "probe_before_work" in data and type(data["probe_before_work"]) is not bool:
+            raise Invalid("probe_before_work must be a JSON boolean")
         self.files = unique_names(data.get("files", []))
         self.editable = unique_names(data.get("editable", []))
         self.visible = unique_names(data.get("visible", self.editable))

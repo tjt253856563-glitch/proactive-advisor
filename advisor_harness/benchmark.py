@@ -48,6 +48,7 @@ def fixture(case, target):
             "tests-preserved": policy["checks"]["tests-preserved"],
         }
     else:
+        policy["probe_before_work"] = True
         policy["checks"]["sum"]["description"] = "Addition behaves according to the project tests."
     policy["limits"] = {"model_calls": 12, "commands": 16, "seconds": 300}
     return policy
@@ -169,10 +170,11 @@ def main(argv=None):
     parser.add_argument("--model-identity", required=True, help="Record model build / weight digest for reproducibility")
     parser.add_argument("--repetitions", type=int, default=1, choices=range(1, 6))
     parser.add_argument("--seed", type=int, default=13)
+    parser.add_argument("--case", choices=tuple(CASES), action="append", help="Select individual cases; default is all")
     args = parser.parse_args(argv)
     provider = provider_from(args.provider)
     args.out.mkdir(parents=True, exist_ok=False)
-    pairs = [(case, repetition) for repetition in range(1, args.repetitions + 1) for case in CASES]
+    pairs = [(case, repetition) for repetition in range(1, args.repetitions + 1) for case in (args.case or CASES)]
     rng = random.Random(args.seed)
     rng.shuffle(pairs)
     schedule = []

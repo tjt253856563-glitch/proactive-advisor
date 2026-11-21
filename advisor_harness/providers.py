@@ -28,6 +28,7 @@ class Decision:
     value: dict
     input_tokens: int | None = None
     output_tokens: int | None = None
+    error: str | None = None
 
 
 class Provider(Protocol):
@@ -69,7 +70,12 @@ class LocalHTTP:
         message = decode(info["stdout"])
         if info["exit_code"] or message.get("error"):
             raise Blocked(f"{self.kind} decision unavailable: {str(message.get('error', 'worker error'))[:180]}")
-        return Decision(decode(message["content"]), message.get("input_tokens"), message.get("output_tokens"))
+        usage = {"input_tokens": message.get("input_tokens"), "output_tokens": message.get("output_tokens")}
+        try:
+            return Decision(decode(message["content"]), **usage)
+        except Invalid as exc:
+            explanation = "Model hit its generation limit" if message.get("finish_reason") == "length" else str(exc)
+            return Decision({}, **usage, error=explanation)
 
 
 class Ollama(LocalHTTP):
@@ -167,7 +173,7 @@ class Demo:
             })
         if not history:
             return Decision({"action": "read", "path": "calculator.py"})
-        if "rename" in goal.lower() and len(history) == 1:
+        if ("rename" in goal.lower() or 'label() to return "new"' in goal.lower()) and len(history) == 1:
             return Decision({"action": "edit", "path": "calculator.py", "old": '"old"', "new": '"new"'})
         if "inspect" in goal.lower() and len(history) == 1:
             return Decision({"action": "check", "id": "sum"})
@@ -200,14 +206,17 @@ def make_prompt(phase, data, *, advisor, rules):
             'Return {"level":0..3,"goal":"final goal","constraints":["..."],"tasks":'
             '[{"id":"identifier","title":"one concrete outcome","depends":[],"priority":1,"checks":["id"]}],'
             '"review":[{"tag":"GAP","issue":"...","impact":"...","verification":"..."}],"answer":"optional"}; '
-            "set higher priority first. All required checks need coverage. Simple questions with no required "
-            "checks should answer directly without tasks. Review only assumptions that can change the outcome."
+            "Use one task for a small goal. Cover all required checks by exact id. Use short strings. Simple "
+            "questions with no required checks answer directly. Review only assumptions that change the outcome."
         ),
         "work": (
             'Choose an action: {"action":"read","path":"..."} or {"action":"edit","path":"...",'
             '"old":"exact unique source fragment (null for new file)","new":"replacement"} or '
             '{"action":"check","id":"..."} or {"action":"finish","summary":"..."} or '
-            '{"action":"block","summary":"missing prerequisite"}. Use check to inspect test failures when helpful.'
+            '{"action":"block","summary":"missing prerequisite"}. The history contains actions already executed '
+            'and their results. Use it to make progress. Read only a path in next_reads. Check only an id in '
+            'next_checks. Copy the old fragment exactly from editable_sources. Finish with a concrete '
+            'observed finding or a short summary of the edit.'
         ),
         "repair": (
             'Propose one minimal edit: {"action":"edit","path":"...","old":"exact unique source fragment",'
@@ -216,7 +225,9 @@ def make_prompt(phase, data, *, advisor, rules):
             'justified edit, return {"action":"finish","summary":"reason"}.'
         ),
     }
-    prefix = INSTRUCTIONS + instructions[phase]
+    prefix = INSTRUCTIONS
     if advisor:
-        prefix += "\nUse relevant rules from Proactive Advisor. Keep review tags internal.\n" + rules
+        active_rules = rules if phase == "plan" else rules.split("## 主动思考循环", 1)[-1].split("## 建议过滤器", 1)[0]
+        prefix += "\nUse relevant rules from Proactive Advisor. Keep review tags internal.\n" + active_rules + "\n"
+    prefix += instructions[phase]
     return prefix + "\n--- DATA ---\n" + json.dumps(clean(dict(data, phase=phase)), ensure_ascii=False)

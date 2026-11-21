@@ -36,6 +36,7 @@ flowchart TD
 | `exists` / `contains` / `sha256` | 指定 `path`，后两种另需预期 `value` |
 | `changed` / `unchanged` | 指定 `path`，对照目标创建时的文件哈希 |
 | `manual` | 需要人或外部设备判断的检查，保留 NOT_RUN |
+| `probe_before_work` | 复杂修复可先直接执行已配置验收，采集失败后进入诊断 |
 | `limits` | `seconds`、`model_calls`、`commands`、`command_seconds`、`repair_rounds` |
 
 建议把验收测试放在非可编辑文件清单中。测试和回归是否覆盖用户需要的功能仍由策略作者负责。只检查文件存在不能验证界面体验、安装和真机行为。
